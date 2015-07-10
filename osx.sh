@@ -10,7 +10,6 @@ brew update
 
 binaries=(
   trash
-  node
   tree
   the_silver_searcher
   hub

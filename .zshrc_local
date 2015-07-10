@@ -1,0 +1,17 @@
+# Fix tmux status-utf8 issue, or force tmux to use utf8: `tmux -u`
+# http://goo.gl/hxBM6q
+export LANG=en_us.UTF-8
+export EDITOR=vim
+
+# Aliases
+alias df="df -H"
+alias du="du -ch"
+alias glog="git log --graph --oneline --decorate --date-order --color --boundary"
+
+# Git config
+git config --global merge.tool vimdiff
+
+# Misc configs
+
+# so as not to be disturbed by Ctrl-S ctrl-Q in terminals
+stty -ixon

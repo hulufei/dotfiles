@@ -24,6 +24,7 @@ brew cleanup
 brew install caskroom/cask/brew-cask
 
 apps=(
+  alfred
   dropbox
   google-chrome
   firefox

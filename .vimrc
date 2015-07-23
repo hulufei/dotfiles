@@ -86,6 +86,7 @@ endif
 set clipboard=unnamed " yank and paste with the system clipboard
 " A few options that just make things better
 set encoding=utf-8 nobomb
+set termencoding=utf-8
 set scrolloff=3
 set autoindent
 set visualbell

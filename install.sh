@@ -18,6 +18,9 @@ mkdir -p ~/.vim/swaps
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
 
+# Tmux plugins(tpm)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Manually install nvm
 git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 source nvm.sh

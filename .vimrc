@@ -39,6 +39,8 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbbill/undotree'
+" You have to install https://github.com/CodeFalling/fcitx-remote-for-osx
+Plugin 'CodeFalling/fcitx-vim-osx'
 
 " Front-end related
 Plugin 'pangloss/vim-javascript'
@@ -330,6 +332,8 @@ au FileType javascript setlocal foldmethod=marker
 au FileType javascript setlocal foldmarker={,}
 " markdown file type
 au BufRead,BufNewFile *.{md,markdown} set filetype=markdown
+" Disable auto wrap in markdown file
+" autocmd BufNewFile,BufRead *.{md,markdown} set nowrap
 " Treat .json files as .js
 autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
 " Treat .ejs files as .html

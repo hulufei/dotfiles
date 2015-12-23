@@ -1,5 +1,7 @@
 # dotfiles
 
+`git clone --recursive https://github.com/hulufei/dotfiles.git`
+
 ## Install
 
 `./install.sh`

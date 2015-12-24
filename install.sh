@@ -38,6 +38,10 @@ chsh -s $(which zsh)
 npm i -g tldr
 tldr --update
 
+# fasd, install manually: `cd fasd && sudo make install`
+# Then `antigen bundle fasd` worked
+git clone https://github.com/clvv/fasd.git
+
 # OS Detection
 
 UNAME=`uname`

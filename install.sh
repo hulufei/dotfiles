@@ -33,6 +33,15 @@ ln -s "$DOTFILES/.zshrc" ~/
 ln -s "$DOTFILES/.zshrc_local" ~/
 chsh -s $(which zsh)
 
+# Toolbox
+# https://github.com/tldr-pages/tldr
+npm i -g tldr
+tldr --update
+
+# fasd, install manually: `cd fasd && sudo make install`
+# Then `antigen bundle fasd` worked
+git clone https://github.com/clvv/fasd.git
+
 # OS Detection
 
 UNAME=`uname`

@@ -22,6 +22,7 @@ brew cleanup
 
 # brew cask
 brew install caskroom/cask/brew-cask
+brew install tig
 
 apps=(
   alfred

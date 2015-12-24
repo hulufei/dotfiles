@@ -33,6 +33,11 @@ ln -s "$DOTFILES/.zshrc" ~/
 ln -s "$DOTFILES/.zshrc_local" ~/
 chsh -s $(which zsh)
 
+# Toolbox
+# https://github.com/tldr-pages/tldr
+npm i -g tldr
+tldr --update
+
 # OS Detection
 
 UNAME=`uname`

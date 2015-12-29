@@ -54,8 +54,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rizzatti/dash.vim'
 
 " Tagbar(js)
-Plugin 'majutsushi/tagbar'
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'majutsushi/tagbar'
+" Plugin 'marijnh/tern_for_vim'
 
 " vim-snipmate
 Plugin 'MarcWeber/vim-addon-mw-utils'

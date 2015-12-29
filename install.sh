@@ -42,6 +42,17 @@ tldr --update
 # Then `antigen bundle fasd` worked
 git clone https://github.com/clvv/fasd.git
 
+# Git
+git config --global user.email 'ihulufei@icloud.com'
+git config --global user.name 'hulufei'
+# Github: generating ssh keys
+# http://goo.gl/lyu73
+ssh-keygen -f ./.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
+# start the ssh-agent in the background
+eval "$(ssh-agent -s)"
+ssh-add ./.ssh/id_rsa
+# Next: Step 3
+
 # OS Detection
 
 UNAME=`uname`

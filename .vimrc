@@ -58,10 +58,10 @@ Plugin 'rizzatti/dash.vim'
 " Plugin 'marijnh/tern_for_vim'
 
 " vim-snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'hulufei/vim-snippets'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'garbas/vim-snipmate'
+" Plugin 'hulufei/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -197,11 +197,6 @@ nnoremap <leader>u :UndotreeToggle<CR>
 " if undotree is opened, it is likely one wants to interact with it.
 let g:undotree_SetFocusWhenToggle=1
 
-" SuperTab
-" let g:SuperTabDefultCompletionType='context'
-" let g:SuperTabDefaultCompletionType = '<C-X><C-U>'
-" let g:SuperTabRetainCompletionType=2
-
 "Explore settings
 let g:netrw_preview   = 1
 let g:netrw_liststyle = 3
@@ -325,6 +320,16 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>p viw p
 " Ctrlp shortcuts
 nmap <leader>b :CtrlPBuffer<CR>
+
+" If you want `n` to always search forward and `N` backward
+nnoremap <expr> n  'Nn'[v:searchforward]
+nnoremap <expr> N  'nN'[v:searchforward]
+
+" Don't lose selection when shifting sidewards(you can use `gv` to reselect the last
+" selection)
+" Disabled, because break undo. Use `.` to repeat, `gv` to reselect
+" xnoremap <  <gv
+" xnoremap >  >gv
 
 "By default Vim doesn't fold Javascript files,but you can add some
 "basic,perfectly serviceable folding with these two lines in your .vimrc

@@ -52,6 +52,10 @@ Plugin 'mattn/emmet-vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rizzatti/dash.vim'
+" Plugin 'lambdatoast/elm.vim'
+Plugin 'ElmCast/elm-vim'
+
+Plugin 'nathangrigg/vim-beancount'
 
 " Tagbar(js)
 " Plugin 'majutsushi/tagbar'
@@ -347,6 +351,10 @@ autocmd BufNewFile,BufRead *.ejs set filetype=html
 autocmd VimResized * :wincmd =
 " Autosave
 " au InsertLeave <buffer> write
+
+" Beancount
+autocmd FileType beancount inoremap . .<C-O>:AlignCommodity<CR>
+autocmd FileType beancount inoremap <Tab> <c-x><c-o>
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

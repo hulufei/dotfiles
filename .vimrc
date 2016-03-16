@@ -53,6 +53,8 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'rizzatti/dash.vim'
 
+Plugin 'evanmiller/nginx-vim-syntax'
+
 " Tagbar(js)
 " Plugin 'majutsushi/tagbar'
 " Plugin 'marijnh/tern_for_vim'

@@ -90,6 +90,8 @@ if has("persistent_undo")
     set undolevels=1000         " Maximum number of changes that can be undone
     set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 endif
+" Webpack watch not work properly on `auto` set(ubuntu)
+set backupcopy=yes
 
 set clipboard=unnamed " yank and paste with the system clipboard
 " A few options that just make things better

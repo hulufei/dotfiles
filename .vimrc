@@ -273,6 +273,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 " JSX
 let g:jsx_ext_required = 0
 
+" elm
+let g:elm_format_autosave = 1
+
 " ctrlp config
 " exclude directories or files from the search
 " MacOSX/Linux
@@ -311,6 +314,11 @@ nmap sk :SplitjoinJoin<cr>
 
 " Format JSON
 nmap =j :%!python -m json.tool<CR>
+
+" Insert current date(YYYY-MM-DD)
+" http://vim.wikia.com/wiki/Insert_current_date_or_time
+nnoremap <leader>dts "=strftime("%F")<CR>P
+inoremap <leader>dts <C-R>=strftime("%F")<CR>
 
 "------------------
 " Useful Functions

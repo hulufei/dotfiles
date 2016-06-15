@@ -64,10 +64,10 @@ Plugin 'evanmiller/nginx-vim-syntax'
 " Plugin 'marijnh/tern_for_vim'
 
 " vim-snipmate
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'garbas/vim-snipmate'
-" Plugin 'hulufei/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'hulufei/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -365,8 +365,9 @@ autocmd VimResized * :wincmd =
 " au InsertLeave <buffer> write
 
 " Beancount
-autocmd FileType beancount inoremap . .<C-O>:AlignCommodity<CR>
-autocmd FileType beancount inoremap <Tab> <c-x><c-o>
+let g:beancount_detailed_first = 1
+autocmd FileType beancount nnoremap <buffer> <leader>= :AlignCommodity<CR>
+autocmd FileType beancount inoremap <c-f> <c-x><c-o>
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

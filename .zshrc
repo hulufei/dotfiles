@@ -1,5 +1,8 @@
 [ -e "${HOME}/.zshrc_local" ] && source "${HOME}/.zshrc_local"
 
+# Enable vi mode shortcuts(ESC to start)
+set -o vi
+
 source $HOME/.nvm/nvm.sh
 source $HOME/.antigen/antigen.zsh
 

@@ -41,6 +41,7 @@ Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbbill/undotree'
 " You have to install https://github.com/CodeFalling/fcitx-remote-for-osx
 Plugin 'CodeFalling/fcitx-vim-osx'
+Plugin 'sjl/vitality.vim'
 
 " Front-end related
 Plugin 'pangloss/vim-javascript'
@@ -499,3 +500,10 @@ highlight DiffAdd cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White gui
 highlight DiffDelete cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
 highlight DiffChange cterm=none ctermfg=White ctermbg=Blue gui=none guifg=White guibg=Blue
 highlight DiffText cterm=none ctermfg=Black ctermbg=White gui=none guifg=Black guibg=White
+
+" Change cursor shape between insert and normal mode in iTerm2.app
+" Vitality handled
+" if $TERM_PROGRAM =~ "iTerm"
+"     let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
+"     let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
+" endif

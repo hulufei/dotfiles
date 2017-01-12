@@ -11,12 +11,11 @@ Plugin 'gmarik/Vundle.vim'
 " My Bundles here:
 "
 " original repos on github
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
 " ]n and [n jump to conflict section is awesome
 Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomtom/tcomment_vim'
@@ -36,11 +35,10 @@ Plugin 'hulufei/vim-indexed-search'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'bronson/vim-trailing-whitespace'
 Plugin 'mbbill/undotree'
 " You have to install https://github.com/CodeFalling/fcitx-remote-for-osx
-Plugin 'CodeFalling/fcitx-vim-osx'
+" Plugin 'CodeFalling/fcitx-vim-osx'
 Plugin 'sjl/vitality.vim'
 
 " Front-end related
@@ -52,7 +50,7 @@ Plugin 'wavded/vim-stylus'
 Plugin 'mattn/emmet-vim'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'rizzatti/dash.vim'
+" Plugin 'rizzatti/dash.vim'
 " Plugin 'lambdatoast/elm.vim'
 Plugin 'ElmCast/elm-vim'
 
@@ -214,32 +212,8 @@ let g:netrw_keepdir= 0
 let g:netrw_altv = 1
 let g:netrw_list_hide = '^\..*'
 
-" settings for kien/rainbow_parentheses.vim
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 40
-let g:rbpt_loadcmd_toggle = 0
-
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" Set vim bracket highlighting colors
+hi MatchParen cterm=underline ctermbg=none ctermfg=red
 
 " Airline
 set t_Co=256
@@ -284,7 +258,7 @@ set wildignore+=*/tmp/*,*.so,*.o,*.a,*.obj,*.swp,*.zip,*.pyc,*.pyo,*.class,.DS_S
 " Windows
 " set wildignore+=tmp\*,*.swp,*.zip,*.exe,*.pyc
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$\|node_modules$'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_match_window = 'order:ttb,max:20'
 " Ignore files in .gitignore
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -366,7 +340,6 @@ autocmd VimResized * :wincmd =
 " au InsertLeave <buffer> write
 
 " Beancount
-let g:beancount_detailed_first = 1
 autocmd FileType beancount nnoremap <buffer> <leader>= :AlignCommodity<CR>
 autocmd FileType beancount inoremap <c-f> <c-x><c-o>
 
@@ -485,7 +458,11 @@ if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-set background=dark
+" if has('gui_running')
+" 	set background=light
+" else
+" 	set background=dark
+" endif
 " colorscheme solarized
 
 " Vim diff colorscheme

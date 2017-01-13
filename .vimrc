@@ -54,19 +54,14 @@ Plugin 'mustache/vim-mustache-handlebars'
 " Plugin 'lambdatoast/elm.vim'
 Plugin 'ElmCast/elm-vim'
 
-Plugin 'nathangrigg/vim-beancount'
-
 Plugin 'evanmiller/nginx-vim-syntax'
 
+Plugin 'nathangrigg/vim-beancount'
+Plugin 'SirVer/ultisnips'
+Plugin 'hulufei/snippets'
 " Tagbar(js)
 " Plugin 'majutsushi/tagbar'
 " Plugin 'marijnh/tern_for_vim'
-
-" vim-snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-Plugin 'hulufei/vim-snippets'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -103,7 +98,7 @@ set showmode
 set showcmd
 set wildmenu
 set wildmode=list:longest
-set cursorline
+set nocursorline
 set ttyfast
 set ruler
 set laststatus=2
@@ -198,6 +193,17 @@ let NERDTreeShowBookmarks=1
 
 " tcomment
 map <leader>cs :TCommentBlock<CR>
+
+" http://www.cnblogs.com/pangchol/p/3506863.html
+let g:UltiSnipsExpandTrigger="ii"
+let g:UltiSnipsJumpForwardTrigger="II"
+let g:UltiSnipsJumpBackwardTrigger="OO"
+" iI弹出UltiSnips的可用列表, 不常用的, 所以这里设置成了特殊的iI映射
+let g:UltiSnipsListSnippets="iI"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir='~/.vim/bundle/snippets/UltiSnips'
 
 " Undotree
 nnoremap <leader>u :UndotreeToggle<CR>

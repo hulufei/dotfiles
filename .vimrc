@@ -13,6 +13,8 @@ Plugin 'gmarik/Vundle.vim'
 " original repos on github
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-obsession'
 " ]n and [n jump to conflict section is awesome
 Plugin 'tpope/vim-unimpaired'
 Plugin 'airblade/vim-gitgutter'
@@ -144,7 +146,7 @@ set foldminlines=5
 set wrap
 set textwidth=79
 set formatoptions=qrn1
-set colorcolumn=85
+" set colorcolumn=85
 
 "当 VIM 工作在 Unicode 状态时，遇到这些宽度不明的字符时，默认使用窄字符，这会导致
 "中文的破折号“——”非常短，五角星★等符号只能显示一半。因此，我们需要设置 ambiwidth=double 来解决这个问题。

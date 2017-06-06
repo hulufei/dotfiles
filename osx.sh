@@ -14,6 +14,7 @@ binaries=(
   the_silver_searcher
   hub
   git
+  neovim/neovim/neovim
 )
 
 echo "installing binaries..."

@@ -13,6 +13,8 @@ rm -f ~/.tmux.conf.orig
 mv ~/.tmux.conf ~/.tmux.conf.orig
 ln -s "$DOTFILES/.tmux.conf" ~/
 
+ln -s "$DOTFILES/init.vim" ~/.config/nvim
+
 mkdir -p ~/.vim/backups
 mkdir -p ~/.vim/swaps
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

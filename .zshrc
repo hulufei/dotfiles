@@ -35,3 +35,8 @@ zle -N zle-line-init
 
 antigen apply
 
+export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Setting ag as the default source for fzf
+export FZF_DEFAULT_COMMAND='ag -g ""'

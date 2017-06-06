@@ -41,7 +41,7 @@ let g:UltiSnipsJumpBackwardTrigger="OO"
 let g:UltiSnipsListSnippets="iI"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir='~/.vim/bundle/snippets/UltiSnips'
+let g:UltiSnipsSnippetsDir='~/.local/share/nvim/plugged/snippets/UltiSnips'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'

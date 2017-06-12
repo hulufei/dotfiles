@@ -6,13 +6,45 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'iCyMind/NeoSolarized'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'Raimondi/delimitMate'
+Plug 'bronson/vim-visual-star-search'
+Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-obsession'
 
 " ]n and [n jump to conflict section is awesome
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-obsession'
+
+Plug 'skywind3000/asyncrun.vim'
+augroup asyncrun
+  autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+augroup END
+noremap <leader>q :call asyncrun#quickfix_toggle(8)<cr>
+nnoremap <leader>e :AsyncRun
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_solarized_bg='dark'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" Yank and paste a window with <leader>ww
+Plug 'wesQ3/vim-windowswap'
+
+Plug 'sbdchd/neoformat'
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+" Only msg when there is an error
+let g:neoformat_only_msg_on_error = 1
+" Run a formatter on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * Neoformat
+augroup END
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -62,6 +94,13 @@ Plug 'bronson/vim-trailing-whitespace'
 " Strip trailing whitespace
 map <leader><space> :FixWhitespace<cr>
 
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+let g:vim_jsx_pretty_colorful_config = 1
+
+Plug 'mattn/emmet-vim'
+let g:user_emmet_expandabbr_key = '<c-e>'
+
 " Initialize plugin system
 call plug#end()
 
@@ -71,10 +110,13 @@ set background=dark
 set clipboard+=unnamedplus
 set termguicolors
 set relativenumber
+set lazyredraw
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set lcs=tab:▸\ ,eol:¬,nbsp:_
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
 
 "Use the tab key match bracket pairs. It's a hell of a lot easier to type <tab> than <%>
 nnoremap <tab> %

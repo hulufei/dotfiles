@@ -120,6 +120,7 @@ set nostartofline
 set foldmethod=syntax
 " Change 99 to 0 to start with everything closed, if you prefer.
 set foldlevel=99
+set showbreak=↪
 
 " Use the tab key match bracket pairs. It's a hell of a lot easier to type <tab> than <%>
 nnoremap <tab> %
@@ -142,6 +143,10 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 " Repalce current words with yanked content
 nnoremap <leader>p viw p
+" Switch off the current search
+nnoremap <silent> <Leader>/ :nohlsearch<CR>
+" Git commits.
+autocmd FileType gitcommit setlocal spell
 
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>

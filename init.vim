@@ -117,15 +117,18 @@ set shiftwidth=4
 set lcs=tab:▸\ ,eol:¬,nbsp:_
 " Don’t reset cursor to start of line when moving around.
 set nostartofline
+set foldmethod=syntax
+" Change 99 to 0 to start with everything closed, if you prefer.
+set foldlevel=99
 
-"Use the tab key match bracket pairs. It's a hell of a lot easier to type <tab> than <%>
+" Use the tab key match bracket pairs. It's a hell of a lot easier to type <tab> than <%>
 nnoremap <tab> %
 vnoremap <tab> %
-"Makes j and k work the way you expect instead of working in some archaic
-"'movement by file line instead of screen line' fashion
+" Makes j and k work the way you expect instead of working in some archaic
+" 'movement by file line instead of screen line' fashion
 nnoremap j gj
 nnoremap k gk
-"Quicker Escaping, note conflict when type 'jj' in insert mode
+" Quicker Escaping, note conflict when type 'jj' in insert mode
 inoremap jj <ESC>
 
 " eggcache vim

@@ -29,6 +29,7 @@ let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#ale#enabled = 1
 
 " Yank and paste a window with <leader>ww
 Plug 'wesQ3/vim-windowswap'
@@ -46,6 +47,11 @@ augroup fmt
   autocmd BufWritePre * Neoformat
 augroup END
 
+" Lint
+Plug 'w0rp/ale'
+nmap <silent> <leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <leader>j <Plug>(ale_next_wrap)
+
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 map <c-o> :NERDTreeFind<cr>
@@ -62,8 +68,24 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Required by ghcmod-vim
+Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
+Plug 'eagletmt/ghcmod-vim'
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
+Plug 'eagletmt/neco-ghc'
+let g:haskellmode_completion_ghc = 1
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'fszymanski/deoplete-emoji'
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
 Plug 'ervandew/supertab'
+
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'
 let g:UltiSnipsExpandTrigger="ii"
@@ -145,8 +167,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>p viw p
 " Switch off the current search
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
-" Git commits.
-autocmd FileType gitcommit setlocal spell
 
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>

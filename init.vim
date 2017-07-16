@@ -76,6 +76,7 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 Plug 'eagletmt/neco-ghc'
+" After that we configure necoghc to be the default tab completion method.(See supertab)
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
@@ -85,6 +86,16 @@ Plug 'fszymanski/deoplete-emoji'
 let g:deoplete#enable_at_startup = 1
 
 Plug 'ervandew/supertab'
+" To enable familiar tab completion we configure supertab to dispatch to
+" neco-ghc’s tab completion routines instead of the usual local variable completion.
+let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+if has("gui_running")
+  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
+  endif
+endif
 
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'

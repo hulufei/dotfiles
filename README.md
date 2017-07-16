@@ -16,10 +16,10 @@
 
 **JavaScript**
 
-- npm i -g eslint prettier
+- `npm i -g eslint prettier`
 
 **Haskell**
 
 - Install [stack](https://docs.haskellstack.org/en/stable/README/)
 - Config [tuna mirrors](https://mirrors.tuna.tsinghua.edu.cn/help/stackage/)
-- stack install ghc-mod hlint hindent
+- `stack install ghc-mod hlint hindent`

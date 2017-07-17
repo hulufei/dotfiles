@@ -68,14 +68,31 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
+" Hoogle the word under the cursor
+nnoremap <silent> <leader>hh :Hoogle<CR>
+" Hoogle and prompt for input
+nnoremap <leader>hH :Hoogle
+" Hoogle for detailed documentation (e.g. "Functor")
+nnoremap <silent> <leader>hi :HoogleInfo<CR>
+" Hoogle for detailed documentation and prompt for input
+nnoremap <leader>hI :HoogleInfo
+" Hoogle, close the Hoogle window
+nnoremap <silent> <leader>hz :HoogleClose<CR>
+
+" to - Apply one hint at cursor position
+" ta - Apply all suggestions in the file
+Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
+
 " Required by ghcmod-vim
 Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
-Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 map <silent> tw :GhcModTypeInsert<CR>
 map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
-Plug 'eagletmt/neco-ghc'
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 " After that we configure necoghc to be the default tab completion method.(See supertab)
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -191,10 +208,22 @@ nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"
 nnoremap <Leader>yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
 " Copy current buffer path without filename to system clipboard
 nnoremap <Leader>yd :let @*=expand("%:h")<cr>:echo "Copied file directory to clipboard"<cr>
-
+" Pressing ,ss will toggle and untoggle spell checking
+map <leader>ss :setlocal spell!<cr>
 " Source the vimrc file after saving it
 autocmd! bufwritepost init.vim source $MYVIMRC
 nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Neovim terminal configurations
+if has('nvim')
+  " Use <Esc> to escape terminal insert mode
+  tnoremap <Esc> <C-\><C-n>
+  " Make terminal split moving behave like normal neovim
+  tnoremap <c-h> <C-\><C-n><C-w>h
+  tnoremap <c-j> <C-\><C-n><C-w>j
+  tnoremap <c-k> <C-\><C-n><C-w>k
+  tnoremap <c-l> <C-\><C-n><C-w>l
+endif
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

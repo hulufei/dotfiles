@@ -42,10 +42,10 @@ let g:neoformat_basic_format_trim = 1
 " Only msg when there is an error
 let g:neoformat_only_msg_on_error = 1
 " Run a formatter on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * Neoformat
-augroup END
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * Neoformat
+" augroup END
 
 " Lint
 Plug 'w0rp/ale'
@@ -213,17 +213,6 @@ map <leader>ss :setlocal spell!<cr>
 " Source the vimrc file after saving it
 autocmd! bufwritepost init.vim source $MYVIMRC
 nmap <leader>v :tabedit $MYVIMRC<CR>
-
-" Neovim terminal configurations
-if has('nvim')
-  " Use <Esc> to escape terminal insert mode
-  tnoremap <Esc> <C-\><C-n>
-  " Make terminal split moving behave like normal neovim
-  tnoremap <c-h> <C-\><C-n><C-w>h
-  tnoremap <c-j> <C-\><C-n><C-w>j
-  tnoremap <c-k> <C-\><C-n><C-w>k
-  tnoremap <c-l> <C-\><C-n><C-w>l
-endif
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

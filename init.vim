@@ -136,6 +136,16 @@ nnoremap <c-p> :FZF<cr>
 nnoremap <leader>a :Ag
 nnoremap <leader>b :Buffers<cr>
 
+" Elm related
+Plug 'elmcast/elm-vim'
+let g:deoplete#omni#functions = {}
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['file', 'neosnippet']
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#functions.elm = ['elm#Complete']
+let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
+let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
+
 Plug 'AndrewRadev/splitjoin.vim'
 nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>

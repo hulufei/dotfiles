@@ -51,6 +51,9 @@ let g:neoformat_only_msg_on_error = 1
 Plug 'w0rp/ale'
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
+let g:ale_linters = {
+\   'haskell': ['ghc-mod'],
+\}
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -223,6 +226,8 @@ map <leader>ss :setlocal spell!<cr>
 " Source the vimrc file after saving it
 autocmd! bufwritepost init.vim source $MYVIMRC
 nmap <leader>v :tabedit $MYVIMRC<CR>
+" Use \d on top of a word to look it up in Dictionary.app
+nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

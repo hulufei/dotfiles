@@ -51,8 +51,12 @@ let g:neoformat_only_msg_on_error = 1
 Plug 'w0rp/ale'
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
+nmap <silent> <leader>x <Plug>(ale_fix)
 let g:ale_linters = {
 \   'haskell': ['ghc-mod'],
+\}
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
 \}
 
 Plug 'scrooloose/nerdtree'

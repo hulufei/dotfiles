@@ -23,3 +23,9 @@
 - Install [stack](https://docs.haskellstack.org/en/stable/README/)
 - Config [tuna mirrors](https://mirrors.tuna.tsinghua.edu.cn/help/stackage/)
 - `stack install ghc-mod hlint hindent`
+
+IMPROVE:
+
+Replace ghc-mod with https://github.com/parsonsmatt/intero-neovim
+
+Config refer: https://blog.jez.io/haskell-development-with-neovim/

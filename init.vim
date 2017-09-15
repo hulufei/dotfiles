@@ -90,6 +90,8 @@ nnoremap <silent> <leader>hz :HoogleClose<CR>
 
 " to - Apply one hint at cursor position
 " ta - Apply all suggestions in the file
+" Require:
+" stack install hlint apply-refact
 Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
 
 " Required by ghcmod-vim

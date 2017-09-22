@@ -102,8 +102,7 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-" After that we configure necoghc to be the default tab completion method.(See supertab)
-let g:haskellmode_completion_ghc = 1
+let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -112,16 +111,6 @@ Plug 'fszymanski/deoplete-emoji'
 let g:deoplete#enable_at_startup = 1
 
 Plug 'ervandew/supertab'
-" To enable familiar tab completion we configure supertab to dispatch to
-" neco-ghc’s tab completion routines instead of the usual local variable completion.
-let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-if has("gui_running")
-  imap <c-space> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-else " no gui
-  if has("unix")
-    inoremap <Nul> <c-r>=SuperTabAlternateCompletion("\<lt>c-x>\<lt>c-o>")<cr>
-  endif
-endif
 
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'
@@ -147,13 +136,6 @@ nnoremap <leader>b :Buffers<cr>
 
 " Elm related
 Plug 'elmcast/elm-vim'
-let g:deoplete#omni#functions = {}
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['file', 'neosnippet']
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#omni#functions.elm = ['elm#Complete']
-let g:deoplete#omni#input_patterns.elm = '[^ \t]+'
-let g:deoplete#sources.elm = ['omni'] + g:deoplete#sources._
 
 Plug 'AndrewRadev/splitjoin.vim'
 nmap sj :SplitjoinSplit<cr>

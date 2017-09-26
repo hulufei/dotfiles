@@ -109,8 +109,10 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'fszymanski/deoplete-emoji'
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
-
-Plug 'ervandew/supertab'
+" use tab to forward cycle
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+" use tab to backward cycle
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'

@@ -13,21 +13,8 @@ rm -f ~/.tmux.conf.orig
 mv ~/.tmux.conf ~/.tmux.conf.orig
 ln -s "$DOTFILES/.tmux.conf" ~/
 
-ln -s "$DOTFILES/init.vim" ~/.config/nvim
-
-mkdir -p ~/.vim/backups
-mkdir -p ~/.vim/swaps
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
-
 # Tmux plugins(tpm)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
-# Manually install nvm
-git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-source nvm.sh
-nvm install stable
-nvm alias default stable
 
 # Zsh and Antigen
 ln -s "$DOTFILES/antigen" ~/.antigen
@@ -35,24 +22,45 @@ ln -s "$DOTFILES/.zshrc" ~/
 ln -s "$DOTFILES/.zshrc_local" ~/
 chsh -s $(which zsh)
 
+# vim-plug
+echo "Setup neovim"
+echo "Install vim-plug..."
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+mkdir -p ~/.config/nvim
+ln -s "$DOTFILES/init.vim" ~/.config/nvim
+nvim +PlugInstall +qall
+
+mkdir -p ~/.vim/backups
+mkdir -p ~/.vim/swaps
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# vim +PluginInstall +qall
+
 # Toolbox
 # https://github.com/tldr-pages/tldr
-npm i -g tldr
-tldr --update
+# npm i -g tldr
+# tldr --update
+
+# Manually install nvm
+git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+source nvm.sh
+nvm install stable
+nvm alias default stable
 
 # fasd, install manually: `cd fasd && sudo make install`
 # Then `antigen bundle fasd` worked
 git clone https://github.com/clvv/fasd.git
+cd fasd && sudo make install
 
 # Git
 git config --global user.email 'ihulufei@icloud.com'
 git config --global user.name 'hulufei'
 # Github: generating ssh keys
 # http://goo.gl/lyu73
-ssh-keygen -f ./.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
+ssh-keygen -f ~/.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
 # start the ssh-agent in the background
 eval "$(ssh-agent -s)"
-ssh-add ./.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa
 # Next: Step 3
 
 # OS Detection

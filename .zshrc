@@ -24,6 +24,7 @@ antigen bundle tmuxinator
 antigen bundle fasd
 antigen bundle nojhan/liquidprompt
 antigen bundle tarruda/zsh-autosuggestions
+antigen bundle Tarrasch/zsh-autoenv
 
 # Enable autosuggestions automatically.
 zle-line-init() {

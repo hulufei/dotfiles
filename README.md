@@ -1,10 +1,12 @@
 # dotfiles
 
-`git clone --recursive https://github.com/hulufei/dotfiles.git`
+`git clone https://github.com/hulufei/dotfiles.git`
 
 ## Install
 
-`./install.sh`
+- `cd dotfiles`
+- `git submodule update --init --recursive`
+- `./install.sh`
 
 **Tips**
 

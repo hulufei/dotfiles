@@ -1,3 +1,6 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "3195465"]
+  path = 3195465
+  url = https://gist.github.com/3195465.git

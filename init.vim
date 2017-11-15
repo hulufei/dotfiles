@@ -199,6 +199,9 @@ nnoremap <leader>p viw p
 " Switch off the current search
 nnoremap <silent> <Leader>/ :nohlsearch<CR>
 
+" Exit terminal mode
+tnoremap <Esc> <C-\><C-n>
+
 " Save a file as root (,W)
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
-# Install ag
 sudo apt-get install -y silversearcher-ag
+# Support tmux-yank
+sudo apt-get install xsel

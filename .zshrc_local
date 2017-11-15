@@ -17,4 +17,3 @@ git config --global merge.tool vimdiff
 
 # so as not to be disturbed by Ctrl-S ctrl-Q in terminals
 stty -ixon
-source /usr/local/opt/autoenv/activate.sh

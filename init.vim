@@ -42,16 +42,22 @@ let g:neoformat_basic_format_trim = 1
 " Only msg when there is an error
 let g:neoformat_only_msg_on_error = 1
 " Run a formatter on save
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre * Neoformat
-" augroup END
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.re undojoin | Neoformat
+augroup END
+" nmap <leader>ff :Neoformat<cr>
 
 " Lint
 Plug 'w0rp/ale'
 nmap <silent> <leader>k <Plug>(ale_previous_wrap)
 nmap <silent> <leader>j <Plug>(ale_next_wrap)
 nmap <silent> <leader>x <Plug>(ale_fix)
+" nnoremap <silent> gd :ALEGoToDefinition<cr>
+" nnoremap <silent> <cr> :ALEHover<cr>
+nnoremap <silent> gr :ALEFindReferences<cr>
+" Enable completion where available.
+" let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \   'haskell': ['ghc-mod'],
 \}
@@ -105,8 +111,26 @@ Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 let g:haskellmode_completion_ghc = 0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
+" ReasonML related
+Plug 'reasonml-editor/vim-reason-plus'
+
+Plug 'autozimu/LanguageClient-neovim', {
+	\ 'branch': 'next',
+	\ 'do': 'bash install.sh',
+	\ }
+" Required for operations modifying multiple buffers like rename.
+set hidden
+let g:LanguageClient_serverCommands = {
+	\ 'reason': ['ocaml-language-server', '--stdio'],
+	\ 'ocaml': ['ocaml-language-server', '--stdio'],
+	\ 'javascript': ['javascript-typescript-stdio'],
+	\ }
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<cr>
+nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<cr>
+nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<cr>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'fszymanski/deoplete-emoji'
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 " use tab to forward cycle

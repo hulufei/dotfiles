@@ -44,7 +44,7 @@ let g:neoformat_only_msg_on_error = 1
 " Run a formatter on save
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.re undojoin | Neoformat
+  autocmd BufWritePre *.re silent! undojoin | Neoformat
 augroup END
 " nmap <leader>ff :Neoformat<cr>
 

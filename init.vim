@@ -6,7 +6,10 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'iCyMind/NeoSolarized'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
+
 Plug 'Raimondi/delimitMate'
+let delimitMate_expand_cr = 1
+
 Plug 'bronson/vim-visual-star-search'
 Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-fugitive'

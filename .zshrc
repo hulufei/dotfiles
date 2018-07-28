@@ -25,6 +25,7 @@ antigen bundle fasd
 antigen bundle nojhan/liquidprompt
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle Tarrasch/zsh-autoenv
+antigen bundle taskwarrior
 
 # Enable autosuggestions automatically.
 zle-line-init() {
@@ -36,7 +37,9 @@ zle -N zle-line-init
 
 antigen apply
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/Users/hulufei/.local/bin:/usr/local/sbin:$PATH"
+export TIMEWARRIORDB="~/Dropbox/timewarrior"
+export TASKDATA="~/Dropbox/task"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Setting ag as the default source for fzf

@@ -1,0 +1,16 @@
+set :tmux, true
+# adds `-t --today` option, which opens a text file in vim
+option :t, :today, 'open today sheet' do
+  `nvim -O ~/.thyme-today.md ~/.thyme-records.md < \`tty\` > \`tty\``
+end
+
+# adds `-s --seconds num` option, which allows on the fly timer
+option :s, 'seconds num', 'run with custom seconds' do |num|
+  set :timer, num.to_i
+  @run = true
+end
+
+# execute hook after each pomodoro
+after do |seconds_left|
+  `terminal-notifier -message "Thyme's Up!"` if seconds_left == 0
+end

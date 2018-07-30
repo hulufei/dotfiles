@@ -18,6 +18,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+let wiki = {}
+let wiki.path = '~/Dropbox/vimwiki'
+let wiki.syntax = 'markdown'
+let wiki.ext = '.md'
+let wiki.auto_toc = 1
+let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'reason': 'reason', 'javascript': 'javascript'}
+let g:vimwiki_list = [wiki]
+
 " ]n and [n jump to conflict section is awesome
 Plug 'tpope/vim-unimpaired'
 
@@ -38,20 +47,8 @@ let g:airline#extensions#ale#enabled = 1
 
 " Yank and paste a window with <leader>ww
 Plug 'wesQ3/vim-windowswap'
-
-Plug 'sbdchd/neoformat'
-" Enable tab to spaces conversion
-let g:neoformat_basic_format_retab = 1
-" Enable trimmming of trailing whitespace
-let g:neoformat_basic_format_trim = 1
-" Only msg when there is an error
-let g:neoformat_only_msg_on_error = 1
-" Run a formatter on save
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.re silent! undojoin | Neoformat
-augroup END
-" nmap <leader>ff :Neoformat<cr>
+" Conflict with vimwiki, disable it
+let g:windowswap_map_keys=0
 
 " Lint
 Plug 'w0rp/ale'
@@ -67,8 +64,11 @@ let g:ale_linters = {
 \   'haskell': ['ghc-mod'],
 \}
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'javascript': ['prettier', 'eslint'],
+\   'json': ['fixjson'],
+\   'reason': ['refmt'],
 \}
+let g:ale_fix_on_save = 1
 
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -234,6 +234,9 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+
+" Pomodoro thyme integration
+nmap <leader>t :!thyme -d<cr>
 
 " Copy current buffer path relative to root of VIM session to system clipboard
 nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>

@@ -3,7 +3,9 @@ let mapleader = ","
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'iCyMind/NeoSolarized'
+" Plug 'iCyMind/NeoSolarized'
+Plug 'sheerun/vim-polyglot'
+Plug 'trevordmiller/nova-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 
@@ -27,8 +29,8 @@ noremap <leader>q :call asyncrun#quickfix_toggle(8)<cr>
 nnoremap <leader>e :AsyncRun
 
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:airline_solarized_bg='dark'
+" Plug 'vim-airline/vim-airline-themes'
+" let g:airline_solarized_bg='dark'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -84,7 +86,7 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Hoogle the word under the cursor
 nnoremap <silent> <leader>hh :Hoogle<CR>
@@ -164,7 +166,7 @@ nnoremap <leader>a :Ag
 nnoremap <leader>b :Buffers<cr>
 
 " Elm related
-Plug 'elmcast/elm-vim'
+" Plug 'elmcast/elm-vim'
 
 Plug 'AndrewRadev/splitjoin.vim'
 nmap sj :SplitjoinSplit<cr>
@@ -174,7 +176,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " Strip trailing whitespace
 map <leader><space> :FixWhitespace<cr>
 
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 let g:vim_jsx_pretty_colorful_config = 1
 
@@ -184,7 +186,8 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 " Initialize plugin system
 call plug#end()
 
-colorscheme NeoSolarized
+" colorscheme NeoSolarized
+colorscheme nova
 set background=dark
 
 set clipboard+=unnamedplus

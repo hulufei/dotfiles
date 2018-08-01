@@ -26,6 +26,11 @@ let wiki.ext = '.md'
 let wiki.auto_toc = 1
 let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'reason': 'reason', 'javascript': 'javascript'}
 let g:vimwiki_list = [wiki]
+:map <Leader>tt <Plug>VimwikiToggleListItem
+" <bar> chain commands
+" :tcd set the current directory for the current tab and window.
+" %:h the directory of the current file
+:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
 
 " ]n and [n jump to conflict section is awesome
 Plug 'tpope/vim-unimpaired'

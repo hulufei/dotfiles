@@ -240,6 +240,8 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
+" Conflict with ctrlp
+" :tnoremap <Esc> <C-\><C-n>
 " Pomodoro thyme integration
 nmap <leader>t :!thyme -d<cr>
 
@@ -256,6 +258,13 @@ autocmd! bufwritepost init.vim source $MYVIMRC
 nmap <leader>v :tabedit $MYVIMRC<CR>
 " Use \d on top of a word to look it up in Dictionary.app
 nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+
+" Wrap Existing Text at 80 Characters in Vim
+" Use `gq` to format
+au BufRead,BufNewFile *.md setlocal textwidth=80
+
+" Make `crontab -e` work in macos
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.

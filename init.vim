@@ -18,6 +18,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 
+Plug 'blindFS/vim-taskwarrior'
+nnoremap <leader>t :tabnew <bar> :TW<CR>
+
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 let wiki = {}
 let wiki.path = '~/Dropbox/vimwiki'
@@ -243,7 +246,7 @@ nmap <leader>l :set list!<CR>
 " Conflict with ctrlp
 " :tnoremap <Esc> <C-\><C-n>
 " Pomodoro thyme integration
-nmap <leader>t :!thyme -d<cr>
+" nmap <leader>t :!thyme -d<cr>
 
 " Copy current buffer path relative to root of VIM session to system clipboard
 nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>

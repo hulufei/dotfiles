@@ -171,6 +171,7 @@ let g:fzf_action = {
       \ }
 nnoremap <c-p> :FZF<cr>
 nnoremap <leader>a :Ag
+nnoremap <leader>A :exe 'Ag!' expand('<cword>')<cr>
 nnoremap <leader>b :Buffers<cr>
 
 " Elm related
@@ -264,7 +265,7 @@ nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
 
 " Wrap Existing Text at 80 Characters in Vim
 " Use `gq` to format
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" au BufRead,BufNewFile *.md setlocal textwidth=80
 
 " Make `crontab -e` work in macos
 autocmd filetype crontab setlocal nobackup nowritebackup

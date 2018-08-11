@@ -17,6 +17,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
+Plug 'godlygeek/tabular'
 
 Plug 'blindFS/vim-taskwarrior'
 nnoremap <leader>t :tabnew <bar> :TW<CR>
@@ -69,12 +70,13 @@ nnoremap <silent> gr :ALEFindReferences<cr>
 " Enable completion where available.
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
-\   'haskell': ['ghc-mod'],
+\   'haskell': ['hie'],
 \}
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'json': ['fixjson'],
 \   'reason': ['refmt'],
+\   'haskell': ['brittany'],
 \}
 let g:ale_fix_on_save = 1
 
@@ -94,7 +96,6 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-" Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
 " Hoogle the word under the cursor
 nnoremap <silent> <leader>hh :Hoogle<CR>
@@ -106,23 +107,6 @@ nnoremap <silent> <leader>hi :HoogleInfo<CR>
 nnoremap <leader>hI :HoogleInfo
 " Hoogle, close the Hoogle window
 nnoremap <silent> <leader>hz :HoogleClose<CR>
-
-" to - Apply one hint at cursor position
-" ta - Apply all suggestions in the file
-" Require:
-" stack install hlint apply-refact
-Plug 'mpickering/hlint-refactor-vim', { 'for': 'haskell' }
-
-" Required by ghcmod-vim
-Plug 'Shougo/vimproc.vim', { 'do' : 'make' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-let g:haskellmode_completion_ghc = 0
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
 " ReasonML related
 Plug 'reasonml-editor/vim-reason-plus'
@@ -136,6 +120,7 @@ set hidden
 let g:LanguageClient_serverCommands = {
 	\ 'reason': ['ocaml-language-server', '--stdio'],
 	\ 'ocaml': ['ocaml-language-server', '--stdio'],
+	\ 'haskell': ['hie-wrapper'],
 	\ 'javascript': ['javascript-typescript-stdio'],
 	\ }
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<cr>

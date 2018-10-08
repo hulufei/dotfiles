@@ -5,6 +5,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'iCyMind/NeoSolarized'
 Plug 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = ['elm']
 Plug 'trevordmiller/nova-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
@@ -72,11 +73,13 @@ nnoremap <silent> gr :ALEFindReferences<cr>
 let g:ale_linters = {
 \   'haskell': ['hie'],
 \}
+let g:ale_reasonml_refmt_executable = './node_modules/.bin/refmt'
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'json': ['fixjson'],
 \   'reason': ['refmt'],
 \   'haskell': ['brittany'],
+\   'elm': ['elm-format'],
 \}
 let g:ale_fix_on_save = 1
 
@@ -161,6 +164,7 @@ nnoremap <leader>b :Buffers<cr>
 
 " Elm related
 " Plug 'elmcast/elm-vim'
+" let g:elm_format_autosave = 0
 
 Plug 'AndrewRadev/splitjoin.vim'
 nmap sj :SplitjoinSplit<cr>

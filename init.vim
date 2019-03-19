@@ -20,8 +20,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
 
-Plug 'blindFS/vim-taskwarrior'
-nnoremap <leader>t :tabnew <bar> :TW<CR>
+" Plug 'blindFS/vim-taskwarrior'
+" nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 let wiki = {}
@@ -72,15 +72,18 @@ nnoremap <silent> gr :ALEFindReferences<cr>
 " let g:ale_completion_enabled = 1
 let g:ale_linters = {
 \   'haskell': ['hie'],
+\   'javascript': ['eslint'],
 \}
 let g:ale_reasonml_refmt_executable = './node_modules/.bin/refmt'
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
-\   'json': ['fixjson'],
+\   'javascript': ['prettier'],
+\   'css': ['prettier'],
+\   'json': ['prettier'],
 \   'reason': ['refmt'],
 \   'haskell': ['brittany'],
 \   'elm': ['elm-format'],
 \}
+let g:ale_linters_explicit = 1
 let g:ale_fix_on_save = 1
 
 Plug 'scrooloose/nerdtree'

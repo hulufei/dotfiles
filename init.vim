@@ -73,6 +73,7 @@ nnoremap <silent> gr :ALEFindReferences<cr>
 let g:ale_linters = {
 \   'haskell': ['hie'],
 \   'javascript': ['eslint'],
+\   'elm': ['elm-format'],
 \}
 let g:ale_reasonml_refmt_executable = './node_modules/.bin/refmt'
 let g:ale_fixers = {

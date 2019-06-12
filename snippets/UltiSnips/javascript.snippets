@@ -1,0 +1,530 @@
+global !p
+def upperfirst(t):
+	if len(t) < 2:
+		return '' if len(t) < 1 else t.capitalize()
+	return t[0].capitalize() + t[1:]
+def lowerdash(t):
+	return '-'.join([ w.lower() for w in re.findall('[a-z]+|[A-Z]+[a-z]*', t) ])
+endglobal
+
+# Normal javascript snippets
+#
+snippet rc "require package that converts from camelCase or PascalCase to kebab-cased" b
+const $1 = require('$2`!p snip.rv=lowerdash(t[1])`');
+endsnippet
+
+snippet imp "import package that converts from camelCase or PascalCase to kebab-cased" b
+import $1 from '$2`!p snip.rv=lowerdash(t[1])`';
+endsnippet
+
+snippet impf "import File from './File'" b
+import $1 from '${2:./}${3:$1}';
+endsnippet
+
+snippet impn "import { nested } from" b
+import { $1 } from '$2';
+endsnippet
+
+snippet impa "import * as Thing from" b
+import * as $1 from "$2`!p snip.rv=lowerdash(t[1])`";
+endsnippet
+
+snippet impp "import file without a declaration" b
+import '$1';
+endsnippet
+
+snippet icn "import classnames as cn" b
+import cn from 'classnames';
+endsnippet
+
+snippet ism "import scss module" b
+import ${2:styles} from './${1:`!v expand('%:t:r')`}.module.scss';
+endsnippet
+
+snippet expf "export File from './File'" b
+export $1 from '${2:./}$1';
+endsnippet
+
+snippet expn "export nested" b
+export { $1 } from '$2';
+endsnippet
+
+snippet expd "export { default as File } from './File'" b
+export { default as $1 } from "${2:./}$1";
+endsnippet
+
+snippet expa "export * from" b
+export * from '$1';
+endsnippet
+
+snippet cl "console.log"
+console.log($1);
+endsnippet
+
+snippet clv "console.log variable"
+console.log('$1:', $1);
+endsnippet
+
+snippet ce "console.error"
+console.error($1);
+endsnippet
+
+snippet cw "console.warn"
+console.warn($1);
+endsnippet
+
+snippet ct "console.table"
+console.table($1);
+endsnippet
+
+# ==========================================
+# Test Snippets
+#
+snippet rtf "React Test File" b
+import React from 'react';
+import { cleanup, render } from 'react-testing-library';
+
+import ${1:`!v expand('%:t:r')`} from '../$1';
+
+afterEach(cleanup);
+
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	});
+});
+endsnippet
+
+snippet rhtf "React Hooks Test File" b
+import { cleanup } from 'react-testing-library';
+import { renderHook } from 'react-hooks-testing-library';
+
+import $2 from '../${1:`!v expand('%:t:r')`}';
+
+afterEach(cleanup);
+
+describe('$1', () => {
+	it('should $3', () => {
+		$4
+	});
+});
+endsnippet
+
+snippet desc "describe a test" b
+describe('$1', () => {
+	it('should $2', () => {
+		$3
+	});
+});
+endsnippet
+
+snippet it "create a test block" b
+it('should $1', () => {
+	$2
+});
+endsnippet
+
+# ==========================================
+# React Snippets
+#
+snippet rce "React class exported" b
+import React, { Component } from 'react';
+
+export default class ${1:`!v expand('%:t:r')`} extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {};
+	}
+
+	render() {
+		return null;$0
+	}
+}
+endsnippet
+
+snippet rcc "React class component" b
+class $1 extends Component {
+	render() {
+		return null;$0
+	}
+}
+endsnippet
+
+snippet rcon "React class constructor" b
+constructor(props) {
+	super(props);
+
+	this.state = ${1:{}};$0
+}
+endsnippet
+
+snippet fce "function component exported" b
+import React from 'react';
+
+const ${1:`!v expand('%:t:r')`} = props => {
+	return null;$0
+};
+
+export default $1;
+endsnippet
+
+snippet sfce "simple function component export (no props)" b
+import React from 'react';
+
+const ${1:`!v expand('%:t:r')`} = () => {
+	return null;$0
+};
+
+export default $1;
+endsnippet
+
+snippet fc "functional component" b
+const $1 = props => {
+	return null;$0
+};
+endsnippet
+
+snippet rcf "react class function" b
+$1 = (${2:e}) => {
+	$3
+};
+endsnippet
+
+# ==========================================
+# Component Specs and Lifecycle Section
+#
+snippet sdp "static default props" b
+static defaultProps = {
+	$1
+};
+endsnippet
+
+snippet cdp "component default props" b
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$2
+};
+endsnippet
+
+snippet spt "static prop types" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},$0
+};
+endsnippet
+
+snippet cpt "component prop types" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},$0
+};
+endsnippet
+
+snippet gds "get derived state from props" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet gde "get derived state from error" b
+static getDerivedStateFromError(error) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet cdm "component did mount" b
+componentDidMount() {
+	$1
+}
+endsnippet
+
+snippet scu "should component update" b
+shouldComponentUpdate(nextProps, nextState) {
+	return ${1:true};$0
+}
+endsnippet
+
+snippet gsbu "get snapshot before update" b
+getSnapshotBeforeUpdate(prevProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet cdu "component did update" b
+componentDidUpdate(prevProps, prevState${1:, snapshot}) {
+	$0
+}
+endsnippet
+
+snippet cdc "component did catch" b
+componentDidCatch(error, info) {
+	$0
+}
+endsnippet
+
+snippet cwum "component will unmount" b
+componentWillUnmount() {
+	$1
+}
+endsnippet
+
+# ==========================================
+# Deprecated Lifecycle Section
+#
+snippet cwm "component will mount" b
+componentWillMount() {
+	$1
+}
+endsnippet
+
+snippet cwrp "component will receive props" b
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+
+snippet cwu "component will update" b
+componentWillUpdate(nextProps, nextState) {
+	$3
+}
+endsnippet
+
+
+# ==========================================
+# Hooks and effects
+#
+
+snippet useS "useState()" b
+const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2);
+endsnippet
+
+snippet useE "useEffect()" b
+useEffect(() => {
+	$1$0
+}$2);
+endsnippet
+
+snippet useC "useContext()" b
+const ${1:context} = useContext($2);
+endsnippet
+
+priority -1
+snippet useC "useContext()" w
+useContext($1);
+endsnippet
+
+priority 0
+snippet useRed "useReducer(reducer, initialValue)" b
+const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
+endsnippet
+
+snippet useCB "useCallback(fn, inputs)" b
+const ${1:callback} = useCallback(($2) => ${3:{
+	$4
+}}, [$5]);
+endsnippet
+
+snippet useM "useMemo(fn, inputs)" b
+const ${1:memoized} = useMemo(() => ${2:{
+	$3
+}}, [$4]);
+endsnippet
+
+snippet useR "useRef(defaultValue)" b
+const ${1:ref} = useRef(${2:null});
+endsnippet
+
+snippet useI "useImperitiveHandle(ref, createHandle, [inputs])" b
+useImperitiveHandle(${1:ref}, ${4:() => ({
+	$2
+})}, ${5:[$3]})
+endsnippet
+
+snippet useL "useLayoutEffect()" b
+useLayoutEffect(() => {
+	$1
+});
+endsnippet
+
+snippet useD "useDebugValue(value)" b
+useDebugValue(${1:null});
+endsnippet
+
+# ==========================================
+# Other useful react/redux snippets
+#
+
+snippet fref "React forward ref" b
+export default forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
+endsnippet
+
+priority -1
+snippet fref "React forward ref" w
+forwardRef((props, ref) => <${1:`!v expand('%:t:r')`} {...props} ${2:forwardedRef}={ref} />);
+endsnippet
+
+priority 0
+snippet cc "React create context" b
+export const $1 = createContext($2);
+endsnippet
+
+snippet @c "@connect" b
+@connect(${1:state})
+endsnippet
+
+snippet @ca "@connectAdvanced" b
+@connectAdvanced(${1:dispatch} => {
+	$2
+	return (${3:state}${4:, props}) => {
+		$0
+		return {};
+	};
+})
+endsnippet
+
+snippet cf "connect function" w
+connect(${1:state})(${2:`!v expand('%:t:r')`});
+endsnippet
+
+snippet caf "connect advanced function" w
+connectAdvanced(${1:dispatch} => {
+	$2
+	return (${3:state}${4:, props}) => {
+		$5
+		return {};
+	};
+})(${6:`!v expand('%:t:r')`});
+endsnippet
+
+snippet bac "bind action creators" b
+const ${1:actions} = bindActionCreators({ $2 }, dispatch);$0
+endsnippet
+
+priority -1
+snippet bac "bind action creators" w
+bindActionCreators({ $1 }, dispatch);$0
+endsnippet
+
+# ==========================================
+# Prop Types Section
+#
+
+priority 0
+# Inline prop types
+snippet pt.a "PropTypes.array" w
+PropTypes.array
+endsnippet
+
+snippet pt.ar "PropTypes.array.isRequired" w
+PropTypes.array.isRequired
+endsnippet
+
+snippet pt.b "PropTypes.bool" w
+PropTypes.bool
+endsnippet
+
+snippet pt.br "PropTypes.bool.isRequired" w
+PropTypes.bool.isRequired
+endsnippet
+
+snippet pt.f "PropTypes.func" w
+PropTypes.func
+endsnippet
+
+snippet pt.fr "PropTypes.func.isRequired" w
+PropTypes.func.isRequired
+endsnippet
+
+snippet pt.nu "PropTypes.number" w
+PropTypes.number
+endsnippet
+
+snippet pt.nur "PropTypes.number.isRequired" w
+PropTypes.number.isRequired
+endsnippet
+
+snippet pt.o "PropTypes.object" w
+PropTypes.object
+endsnippet
+
+snippet pt.or "PropTypes.object.isRequired" w
+PropTypes.object.isRequired
+endsnippet
+
+snippet pt.s "PropTyes.string" w
+PropTypes.string
+endsnippet
+
+snippet pt.sr "PropTyes.string.isRequired" w
+PropTypes.string.isRequired
+endsnippet
+
+snippet pt.no "PropTypes.node" w
+PropTypes.node
+endsnippet
+
+snippet pt.nor "PropTypes.node.isRequired" w
+PropTypes.node.isRequired
+endsnippet
+
+snippet pt.e "PropTypes.element" w
+PropTypes.element
+endsnippet
+
+snippet pt.er "PropTypes.element.isRequired" w
+PropTypes.element.isRequired
+endsnippet
+
+snippet pt.ao "PropTypes.arrayOf()" w
+PropTypes.arrayOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.aor "PropTypes.arrayOf().isRequired" w
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.io "PropTypes.instanceOf()" w
+PropTypes.instanceOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.ior "PropTypes.instanceOf().isRequired" w
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.oo "PropTypes.objectOf()" w
+PropTypes.objectOf(${1:PropTypes.string})
+endsnippet
+
+snippet pt.oor "PropTypes.objectOf().isRequired" w
+PropTypes.objectOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet pt.one "PropTypes.oneOf([])" w
+PropTypes.oneOf(['$1'$2])
+endsnippet
+
+snippet pt.oner "PropTypes.oneOf([]).isRequired" w
+PropTypes.oneOf(['$1'$2]).isRequired
+endsnippet
+
+snippet pt.onet "PropTYpes.oneOfType([])" w
+PropTypes.oneOfType([
+	$1
+])
+endsnippet
+
+snippet pt.onetr "PropTYpes.oneOfType([]).isRequired" w
+PropTypes.oneOfType([
+	$1
+]).isRequired
+endsnippet
+
+snippet pt.sh "PropTypes.shape" w
+PropTypes.shape({
+	$1
+})
+endsnippet
+
+snippet pt.shr "PropTypes.shape.isRequired" w
+PropTypes.shape({
+	$1
+}).isRequired
+endsnippet

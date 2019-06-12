@@ -13,6 +13,9 @@ rm -f ~/.tmux.conf.orig
 mv ~/.tmux.conf ~/.tmux.conf.orig
 ln -s "$DOTFILES/.tmux.conf" ~/
 
+ln -s "$DOTFILES/coc-settings.json" ~/.config/nvim/
+ln -s "$PWD/snippets" ~/.local/share/nvim/plugged/
+
 # Tmux plugins(tpm)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

@@ -10,8 +10,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 
-Plug 'Raimondi/delimitMate'
-let delimitMate_expand_cr = 1
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'bronson/vim-visual-star-search'
 Plug 'henrik/vim-indexed-search'
@@ -52,6 +51,7 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
+      \'coc-rls',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-ultisnips',

@@ -4,8 +4,7 @@
     "css",
     "json",
     "javascript",
-    "javascriptreact",
-    "rust"
+    "javascriptreact"
   ],
   "languageserver": {
     "elmLS": {

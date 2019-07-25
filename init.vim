@@ -18,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
+Plug 'nathangrigg/vim-beancount'
 
 " Plug 'blindFS/vim-taskwarrior'
 " nnoremap <leader>t :tabnew <bar> :TW<CR>
@@ -45,6 +46,13 @@ augroup asyncrun
 augroup END
 noremap <leader>q :call asyncrun#quickfix_toggle(8)<cr>
 nnoremap <leader>e :AsyncRun
+
+Plug 'w0rp/ale'
+let g:ale_fix_on_save = 1
+let g:ale_linters_explicit = 1
+let g:ale_fixers = {
+\   'rust': ['rustfmt'],
+\}
 
 " ========== coc config start ===========
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}

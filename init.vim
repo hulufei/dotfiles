@@ -4,8 +4,13 @@ let mapleader = ","
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Plug 'iCyMind/NeoSolarized'
+" First install tex distribution: http://www.tug.org/mactex/morepackages.html
+" Install latexmk if not exist: tlmgr install latexmk
+Plug 'lervag/vimtex'
+" let g:vimtex_compiler_method = 'tectonic'
 Plug 'sheerun/vim-polyglot'
-" let g:polyglot_disabled = ['elm']
+let g:polyglot_disabled = ['latex']
+
 Plug 'trevordmiller/nova-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'

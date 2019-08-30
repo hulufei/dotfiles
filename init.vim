@@ -369,6 +369,9 @@ command! -nargs=? -range=% Space2Tab call IndentConvert(<line1>,<line2>,0,<q-arg
 command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-args>)
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
 
+" https://github.com/fanzeyi/cargo-play
+command CargoPlay !cargo play %
+
 " vertical line ruler
 map ,ch :call SetColorColumn()<CR>
 function! SetColorColumn()

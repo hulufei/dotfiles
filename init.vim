@@ -61,6 +61,8 @@ let g:ale_fixers = {
 
 " ========== coc config start ===========
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+" ## Tips
+" - To navigate forward/backward of a snippet placeholder, use <C-j> and <C-k>.
 let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
@@ -375,7 +377,7 @@ command! -nargs=? -range=% Tab2Space call IndentConvert(<line1>,<line2>,1,<q-arg
 command! -nargs=? -range=% RetabIndent call IndentConvert(<line1>,<line2>,&et,<q-args>)
 
 " https://github.com/fanzeyi/cargo-play
-command CargoPlay !cargo play %
+command! CargoPlay !cargo play %
 
 " vertical line ruler
 map ,ch :call SetColorColumn()<CR>

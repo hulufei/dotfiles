@@ -11,6 +11,7 @@
 **Tips**
 
 - Ack search specified file: eg. --xml
+- TODO: https://github.com/ubnt-intrepid/dot
 
 **Mac**
 

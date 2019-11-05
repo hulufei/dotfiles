@@ -25,7 +25,7 @@ Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
 Plug 'nathangrigg/vim-beancount'
 
-" Plug 'blindFS/vim-taskwarrior'
+Plug 'blindFS/vim-taskwarrior'
 " nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
@@ -319,8 +319,8 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
-" Conflict with ctrlp
-" :tnoremap <Esc> <C-\><C-n>
+" <Esc> will conflict with ctrlp
+:tnoremap jj <C-\><C-n>
 " Pomodoro thyme integration
 " nmap <leader>t :!thyme -d<cr>
 

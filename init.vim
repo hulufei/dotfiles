@@ -26,7 +26,7 @@ Plug 'godlygeek/tabular'
 Plug 'nathangrigg/vim-beancount'
 
 Plug 'blindFS/vim-taskwarrior'
-" nnoremap <leader>t :tabnew <bar> :TW<CR>
+nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 let wiki = {}

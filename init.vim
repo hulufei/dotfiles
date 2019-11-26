@@ -43,6 +43,7 @@ let g:vimwiki_list = [wiki]
 :nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
 
 " ]n and [n jump to conflict section is awesome
+" ]q and [q jump to errors in quickfix
 Plug 'tpope/vim-unimpaired'
 
 Plug 'skywind3000/asyncrun.vim'
@@ -51,6 +52,37 @@ augroup asyncrun
 augroup END
 noremap <leader>q :call asyncrun#quickfix_toggle(8)<cr>
 nnoremap <leader>e :AsyncRun
+" Cooperate with vim-fugitive
+command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>
+" Cooperate asyncrun with vim-airline
+let g:asyncrun_status = ''
+autocmd VimEnter * let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+
+Plug 'JoshMcguigan/estream', { 'do': 'bash install.sh v0.1.1' }
+
+" Disable python std out buffering when running async
+let $PYTHONUNBUFFERED=1
+" Set global error format to match estream output
+set errorformat=%f\|%l\|%c,%f\|%l\|,%f\|\|
+" Use global error format with asyncrun
+let g:asyncrun_local = 0
+
+" Pipe any async command through estream to format it as expected
+" by the errorformat setting above
+" example: `:Async cargo test`
+command! -nargs=1 Async execute "AsyncRun <args> |& ~/.local/share/nvim/plugged/estream/bin/estream"
+nnoremap <leader>ac :Async
+nnoremap <leader>s :AsyncStop<CR>
+
+" Create a file watcher, primarily used with Async using the mapping below
+command! -nargs=1 Watch augroup watch | exe "autocmd! BufWritePost * <args>" | augroup END
+command! NoWatch autocmd! watch
+
+" Use to run a command on every file save, pipe it through estream
+" and view it in the quickfix window.
+" example: `:Watch Async cargo test`
+nnoremap <leader>w :Watch Async
+nnoremap <leader>nw :NoWatch<CR>
 
 Plug 'w0rp/ale'
 let g:ale_fix_on_save = 1

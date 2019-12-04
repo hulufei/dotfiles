@@ -6,6 +6,7 @@
     "javascript",
     "javascriptreact"
   ],
+  "rust.clippy_preference": "on",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",

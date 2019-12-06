@@ -47,10 +47,12 @@ let g:vimwiki_list = [wiki]
 Plug 'tpope/vim-unimpaired'
 
 Plug 'skywind3000/asyncrun.vim'
+" Support customize in running
+let qf_height_lines = 25
 augroup asyncrun
-  autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+  autocmd User AsyncRunStart call asyncrun#quickfix_toggle(qf_height_lines, 1)
 augroup END
-noremap <leader>q :call asyncrun#quickfix_toggle(8)<cr>
+noremap <leader>q :call asyncrun#quickfix_toggle(qf_height_lines)<cr>
 nnoremap <leader>e :AsyncRun
 " Cooperate with vim-fugitive
 command! -bang -nargs=* -complete=file Make AsyncRun -program=make @ <args>

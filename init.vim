@@ -30,7 +30,9 @@ nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 let wiki = {}
-let wiki.path = '~/Dropbox/vimwiki'
+let wiki.path = '~/Dropbox/pkb/content'
+" Compatible with zola
+let wiki.index = '_index'
 let wiki.syntax = 'markdown'
 let wiki.ext = '.md'
 let wiki.auto_toc = 1
@@ -40,7 +42,8 @@ let g:vimwiki_list = [wiki]
 " <bar> chain commands
 " :tcd set the current directory for the current tab and window.
 " %:h the directory of the current file
-:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
+:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:p:h:h <bar> :Async zola serve<cr>
+:nmap <Leader>cd :tcd %:h<cr>
 
 " ]n and [n jump to conflict section is awesome
 " ]q and [q jump to errors in quickfix

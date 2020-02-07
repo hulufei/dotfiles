@@ -1,3 +1,6 @@
+set :timer, 25*60              # 25 minute pomodoros
+set :timer_break, 5*60         # 5 minute breaks
+set :interval, 1               # refresh timer every x second
 set :tmux, true
 # adds `-t --today` option, which opens a text file in vim
 option :t, :today, 'open today sheet' do
@@ -10,7 +13,17 @@ option :s, 'seconds num', 'run with custom seconds' do |num|
   @run = true
 end
 
+# execute hook before each pomodoro
+before do
+  `terminal-notifier -message "Let's get started!"`
+end
+
 # execute hook after each pomodoro
 after do |seconds_left|
-  `terminal-notifier -message "Thyme's Up!"` if seconds_left == 0
+  `terminal-notifier -title "Time To Break" -message "$(task active | awk 'NR==4')"` if seconds_left == 0
+end
+
+# execute hook after thyme program quits
+after(:all) do
+  `terminal-notifier -title "May Stop Active Task" -message "$(task active | awk 'NR==4')"`
 end

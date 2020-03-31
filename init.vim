@@ -29,20 +29,35 @@ Plug 'blindFS/vim-taskwarrior'
 nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+" Make <Tab> work as normal
+let g:vimwiki_table_mappings = 0
+let nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'reason': 'reason', 'javascript': 'javascript', 'rust': 'rust'}
+" :nmap <Leader>wn <Plug>VimwikiNextLink
+" :nmap <Leader>wp <Plug>VimwikiPrevLink
 let wiki = {}
-let wiki.path = '~/Dropbox/pkb/content'
-" Compatible with zola
-let wiki.index = '_index'
+let wiki.path = '~/Dropbox/vimwiki'
 let wiki.syntax = 'markdown'
 let wiki.ext = '.md'
 let wiki.auto_toc = 1
-let wiki.nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'reason': 'reason', 'javascript': 'javascript'}
-let g:vimwiki_list = [wiki]
+let wiki.auto_tags = 1
+
+" <leader>ws select wikis ui
+let zola = {}
+let zola.path = '~/Dropbox/pkb/content'
+let zola.syntax = 'markdown'
+let zola.ext = '.md'
+let zola.auto_toc = 1
+" Compatible with zola
+let zola.index = '_index'
+
+let g:vimwiki_list = [wiki, zola]
 :map <Leader>tt <Plug>VimwikiToggleListItem
 " <bar> chain commands
 " :tcd set the current directory for the current tab and window.
 " %:h the directory of the current file
-:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:p:h:h <bar> :Async zola serve<cr>
+" :nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:p:h:h <bar> :Async zola serve<cr>
+:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
+:nmap <Leader>ww <Plug>VimwikiIndex <bar> :tcd %:h<cr>
 :nmap <Leader>cd :tcd %:h<cr>
 
 " ]n and [n jump to conflict section is awesome

@@ -51,14 +51,24 @@ let zola.auto_toc = 1
 let zola.index = '_index'
 
 let g:vimwiki_list = [wiki, zola]
-:map <Leader>tt <Plug>VimwikiToggleListItem
+map <Leader>tt <Plug>VimwikiToggleListItem
 " <bar> chain commands
 " :tcd set the current directory for the current tab and window.
 " %:h the directory of the current file
 " :nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:p:h:h <bar> :Async zola serve<cr>
-:nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
-:nmap <Leader>ww <Plug>VimwikiIndex <bar> :tcd %:h<cr>
-:nmap <Leader>cd :tcd %:h<cr>
+nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
+nmap <Leader>ww <Plug>VimwikiIndex <bar> :tcd %:h<cr>
+nmap <Leader>cd :tcd %:h<cr>
+
+" Setup completion popup menu work just like in an IDE
+" Don't auto select first item
+set completeopt=longest,menuone
+" Completion for relative path
+autocmd InsertEnter * let save_cwd = getcwd() | set autochdir
+" Reset current directory
+autocmd InsertLeave * set noautochdir | execute 'cd' fnameescape(save_cwd)
+" Case is ignored when completing file names and directories.
+set wildignorecase
 
 " ]n and [n jump to conflict section is awesome
 " ]q and [q jump to errors in quickfix

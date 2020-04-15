@@ -100,7 +100,9 @@ let g:asyncrun_local = 0
 " Pipe any async command through estream to format it as expected
 " by the errorformat setting above
 " example: `:Async cargo test`
-command! -nargs=1 Async execute "AsyncRun <args> |& ~/.local/share/nvim/plugged/estream/bin/estream"
+" Unfortunately can't set multiple attribute to -complete:
+" https://stackoverflow.com/questions/21499048/setting-multiple-values-for-vim-command-complete-attribute
+command! -nargs=1 -complete=file Async execute "AsyncRun <args> |& ~/.local/share/nvim/plugged/estream/bin/estream"
 nnoremap <leader>ac :Async
 nnoremap <leader>s :AsyncStop<CR>
 

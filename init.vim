@@ -124,7 +124,7 @@ let g:ale_fixers = {
 \}
 
 " ========== coc config start ===========
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " ## Tips
 " - To navigate forward/backward of a snippet placeholder, use <C-j> and <C-k>.
 let g:coc_global_extensions = [
@@ -174,8 +174,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev-error)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next-error)
+nmap <silent> <leader>kw <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>jw <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -188,6 +190,8 @@ nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> gx <Plug>(coc-fix-current)
 " Remap for do codeAction of current line
 nmap <silent> ga <Plug>(coc-codeaction)
+" get full diagnostic info
+nmap <silent> gI <Plug>(coc-diagnostic-info)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -339,6 +343,9 @@ call plug#end()
 " colorscheme NeoSolarized
 colorscheme nova
 set background=dark
+
+" should appear after the |:colorscheme| command
+hi! CocErrorSign guifg=#df8c8c
 
 set clipboard+=unnamedplus
 set termguicolors

@@ -305,6 +305,7 @@ let g:UltiSnipsListSnippets="iI"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir='~/.local/share/nvim/plugged/snippets/UltiSnips'
+autocmd filetype javascriptreact :UltiSnipsAddFiletypes javascriptreact.javascript
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'

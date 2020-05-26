@@ -130,7 +130,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
-      \'coc-rls',
+      \'coc-rust-analyzer',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-ultisnips',
@@ -347,6 +347,7 @@ set background=dark
 
 " should appear after the |:colorscheme| command
 hi! CocErrorSign guifg=#df8c8c
+hi! link SignColumn LineNr
 
 set clipboard+=unnamedplus
 set termguicolors

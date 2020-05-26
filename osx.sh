@@ -14,7 +14,7 @@ binaries=(
   the_silver_searcher
   hub
   git
-  neovim/neovim/neovim
+  neovim
 )
 
 echo "installing binaries..."
@@ -30,8 +30,8 @@ apps=(
   dropbox
   google-chrome
   firefox
-  appcleaner
-  vlc
+  # appcleaner
+  # vlc
 )
 # Install apps to /Applications
 # Default is: /Users/$user/Applications

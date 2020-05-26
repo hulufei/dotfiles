@@ -1,6 +1,38 @@
 #!/usr/bin/env bash
 DOTFILES=$PWD
 
+# OS Detection
+
+UNAME=`uname`
+
+# Fallback info
+CURRENT_OS='Linux'
+DISTRO=''
+
+if [[ $UNAME == 'Darwin' ]]; then
+  CURRENT_OS='OS X'
+else
+  # Must be Linux, determine distro
+  if [[ -f /etc/redhat-release ]]; then
+    # CentOS or Redhat?
+    if grep -q "CentOS" /etc/redhat-release; then
+      DISTRO='CentOS'
+    else
+      DISTRO='RHEL'
+    fi
+  fi
+fi
+
+if [[ $CURRENT_OS == 'OS X' ]]; then
+  [ -e "${DOTFILES}/osx.sh" ] && source "${DOTFILES}/osx.sh"
+elif [[ $CURRENT_OS == 'Linux' ]]; then
+  [ -e "${DOTFILES}/ubuntu.sh" ] && source "${DOTFILES}/ubuntu.sh"
+
+  if [[ $DISTRO == 'CentOS' ]]; then
+    # None so far...
+  fi
+fi
+
 rm -f ~/.vimrc.orig
 mv ~/.vimrc ~/.vimrc.orig
 ln -s "$DOTFILES/.vimrc" ~/
@@ -31,6 +63,7 @@ echo "Install vim-plug..."
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 mkdir -p ~/.config/nvim
+mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.orig
 ln -s "$DOTFILES/init.vim" ~/.config/nvim
 nvim +PlugInstall +qall
 
@@ -45,10 +78,10 @@ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # tldr --update
 
 # Manually install nvm
-git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
-source nvm.sh
-nvm install stable
-nvm alias default stable
+# git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+# source nvm.sh
+# nvm install stable
+# nvm alias default stable
 
 # fasd, install manually: `cd fasd && sudo make install`
 # Then `antigen bundle fasd` worked
@@ -65,36 +98,4 @@ ssh-keygen -f ~/.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 # Next: Step 3
-
-# OS Detection
-
-UNAME=`uname`
-
-# Fallback info
-CURRENT_OS='Linux'
-DISTRO=''
-
-if [[ $UNAME == 'Darwin' ]]; then
-  CURRENT_OS='OS X'
-else
-  # Must be Linux, determine distro
-  if [[ -f /etc/redhat-release ]]; then
-    # CentOS or Redhat?
-    if grep -q "CentOS" /etc/redhat-release; then
-      DISTRO='CentOS'
-    else
-      DISTRO='RHEL'
-    fi
-  fi
-fi
-
-if [[ $CURRENT_OS == 'OS X' ]]; then
-  [ -e "${DOTFILES}/osx.sh" ] && source "${DOTFILES}/osx.sh"
-# elif [[ $CURRENT_OS == 'Linux' ]]; then
-#   # None so far...
-#
-#   if [[ $DISTRO == 'CentOS' ]]; then
-#     # None so far...
-#   fi
-fi
 

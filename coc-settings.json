@@ -4,7 +4,9 @@
     "css",
     "json",
     "javascript",
-    "javascriptreact"
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
   "rust.clippy_preference": "on",
   "languageserver": {

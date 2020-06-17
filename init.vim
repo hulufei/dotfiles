@@ -31,6 +31,7 @@ nnoremap <leader>t :tabnew <bar> :TW<CR>
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 " Make <Tab> work as normal
 let g:vimwiki_table_mappings = 0
+let g:vimwiki_folding = 'expr'
 let nested_syntaxes = {'python': 'python', 'c++': 'cpp', 'reason': 'reason', 'javascript': 'javascript', 'rust': 'rust'}
 " :nmap <Leader>wn <Plug>VimwikiNextLink
 " :nmap <Leader>wp <Plug>VimwikiPrevLink

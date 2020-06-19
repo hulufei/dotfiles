@@ -25,6 +25,8 @@ brew install ${binaries[@]}
 brew cleanup
 
 # brew cask
+brew tap homebrew/cask-fonts
+brew cask install font-fira-cod
 
 apps=(
   alfred

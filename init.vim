@@ -25,8 +25,8 @@ Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
 Plug 'nathangrigg/vim-beancount'
 
-Plug 'blindFS/vim-taskwarrior'
-nnoremap <leader>t :tabnew <bar> :TW<CR>
+" Plug 'blindFS/vim-taskwarrior'
+" nnoremap <leader>t :tabnew <bar> :TW<CR>
 
 Plug 'vimwiki/vimwiki', {'branch': 'dev'}
 " Make <Tab> work as normal

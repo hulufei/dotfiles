@@ -27,10 +27,6 @@ if [[ $CURRENT_OS == 'OS X' ]]; then
   [ -e "${DOTFILES}/osx.sh" ] && source "${DOTFILES}/osx.sh"
 elif [[ $CURRENT_OS == 'Linux' ]]; then
   [ -e "${DOTFILES}/ubuntu.sh" ] && source "${DOTFILES}/ubuntu.sh"
-
-  if [[ $DISTRO == 'CentOS' ]]; then
-    # None so far...
-  fi
 fi
 
 rm -f ~/.vimrc.orig
@@ -45,14 +41,12 @@ rm -f ~/.tmux.conf.orig
 mv ~/.tmux.conf ~/.tmux.conf.orig
 ln -s "$DOTFILES/.tmux.conf" ~/
 
-ln -s "$DOTFILES/coc-settings.json" ~/.config/nvim/
-ln -s "$PWD/snippets" ~/.local/share/nvim/plugged/
-
 # Tmux plugins(tpm)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Zsh and Antigen
-ln -s "$DOTFILES/antigen" ~/.antigen
+mkdir -p ~/.antigen
+curl -L git.io/antigen > ~/.antigen/antigen.zsh
 ln -s "$DOTFILES/.zshrc" ~/
 ln -s "$DOTFILES/.zshrc_local" ~/
 chsh -s $(which zsh)
@@ -67,9 +61,12 @@ mv ~/.config/nvim/init.vim ~/.config/nvim/init.vim.orig
 ln -s "$DOTFILES/init.vim" ~/.config/nvim
 nvim +PlugInstall +qall
 
-mkdir -p ~/.vim/backups
-mkdir -p ~/.vim/swaps
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+ln -s "$DOTFILES/coc-settings.json" ~/.config/nvim/
+ln -s "$PWD/snippets" ~/.local/share/nvim/plugged/
+
+# mkdir -p ~/.vim/backups
+# mkdir -p ~/.vim/swaps
+# git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # vim +PluginInstall +qall
 
 # Toolbox
@@ -93,9 +90,9 @@ git config --global user.email 'ihulufei@icloud.com'
 git config --global user.name 'hulufei'
 # Github: generating ssh keys
 # http://goo.gl/lyu73
-ssh-keygen -f ~/.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
+# ssh-keygen -f ~/.ssh/id_rsa -t rsa -C 'ihulufei@icloud.com' -N ''
 # start the ssh-agent in the background
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_rsa
 # Next: Step 3
 

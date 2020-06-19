@@ -1,3 +1,6 @@
+# Fix brew install neovim without python3 provider
+sudo pip3 install neovim --upgrade
+
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
@@ -10,11 +13,11 @@ brew update
 
 binaries=(
   trash
-  tree
   the_silver_searcher
-  hub
-  git
-  neovim
+  homebrew/cask-cask
+  tig
+  tmux
+  node
 )
 
 echo "installing binaries..."
@@ -22,12 +25,12 @@ brew install ${binaries[@]}
 brew cleanup
 
 # brew cask
-brew install caskroom/cask/brew-cask
-brew install tig
 
 apps=(
   alfred
   dropbox
+  iterm2
+  rectangle
   google-chrome
   firefox
   # appcleaner

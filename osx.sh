@@ -1,6 +1,3 @@
-# Fix brew install neovim without python3 provider
-sudo pip3 install neovim --upgrade
-
 # Check for Homebrew,
 # Install if we don't have it
 if test ! $(which brew); then
@@ -18,11 +15,15 @@ binaries=(
   tig
   tmux
   node
+  neovim
 )
 
 echo "installing binaries..."
 brew install ${binaries[@]}
 brew cleanup
+
+# Fix brew install neovim without python3 provider
+sudo pip3 install neovim --upgrade
 
 # brew cask
 brew tap homebrew/cask-fonts

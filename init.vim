@@ -338,6 +338,14 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 Plug 'mattn/emmet-vim'
 let g:user_emmet_expandabbr_key = '<c-e>'
+let g:user_emmet_settings = {
+\ 'typescript' : {
+\     'extends' : 'jsx',
+\ },
+\ 'javascript' : {
+\     'extends' : 'jsx',
+\ },
+\}
 
 " Initialize plugin system
 call plug#end()

@@ -132,6 +132,7 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
       \'coc-rust-analyzer',
+      \'coc-reason',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-ultisnips',
@@ -294,7 +295,7 @@ nnoremap <leader>hI :HoogleInfo
 nnoremap <silent> <leader>hz :HoogleClose<CR>
 
 " ReasonML related
-Plug 'reasonml-editor/vim-reason-plus'
+" Plug 'reasonml-editor/vim-reason-plus'
 
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'
@@ -426,6 +427,7 @@ nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
 " Use `gq` to format
 " au BufRead,BufNewFile *.md setlocal textwidth=80
 
+autocmd BufNewFile,BufRead *.har set filetype=json
 " Make `crontab -e` work in macos
 autocmd filetype crontab setlocal nobackup nowritebackup
 

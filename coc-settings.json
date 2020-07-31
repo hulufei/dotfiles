@@ -3,12 +3,13 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "json",
+    "svelte",
+    "reason",
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
   ],
-  "rust.clippy_preference": "on",
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",

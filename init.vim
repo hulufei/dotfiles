@@ -190,7 +190,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 " Fix autofix problem of current line
 nmap <silent> gx <Plug>(coc-fix-current)
-" Remap for do codeAction of current line
+" Remap keys for applying codeAction to the current buffer.(eg. fixAll)
 nmap <silent> ga <Plug>(coc-codeaction)
 " get full diagnostic info
 nmap <silent> gI <Plug>(coc-diagnostic-info)
@@ -270,7 +270,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 map <c-o> :NERDTreeFind<cr>
 
-Plug 'scrooloose/nerdcommenter'
+Plug 'preservim/nerdcommenter'
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments

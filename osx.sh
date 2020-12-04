@@ -16,6 +16,8 @@ binaries=(
   tmux
   node
   neovim
+  bat
+  ranger
 )
 
 echo "installing binaries..."
@@ -43,3 +45,10 @@ apps=(
 # Default is: /Users/$user/Applications
 echo "installing apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
+
+# Generate default rc.conf
+# To Enable image preview in iTerm2, modify rc.conf:
+# set preview_images true
+# set preview_images_method iterm2
+ranger --copy-config=rc
+

@@ -22,7 +22,7 @@ antigen bundle vundle
 antigen bundle tmux
 antigen bundle tmuxinator
 antigen bundle fasd
-antigen bundle nojhan/liquidprompt
+# antigen bundle nojhan/liquidprompt
 antigen bundle tarruda/zsh-autosuggestions
 antigen bundle Tarrasch/zsh-autoenv
 antigen bundle taskwarrior
@@ -44,3 +44,5 @@ export TASKDATA="~/Dropbox/task"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag -g ""'
+
+eval "$(starship init zsh)"

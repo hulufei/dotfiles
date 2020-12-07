@@ -18,6 +18,7 @@ binaries=(
   neovim
   bat
   ranger
+  starship
 )
 
 echo "installing binaries..."

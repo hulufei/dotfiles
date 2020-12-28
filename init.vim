@@ -11,6 +11,11 @@ Plug 'lervag/vimtex'
 Plug 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['latex']
 
+" Sql related
+Plug 'lifepillar/pgsql.vim'
+let g:sql_type_default = 'pgsql'
+Plug 'tpope/vim-dadbod'
+
 Plug 'trevordmiller/nova-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
@@ -132,7 +137,6 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
       \'coc-rust-analyzer',
-      \'coc-reason',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-ultisnips',
@@ -296,6 +300,7 @@ nnoremap <silent> <leader>hz :HoogleClose<CR>
 
 " ReasonML related
 " Plug 'reasonml-editor/vim-reason-plus'
+Plug 'rescript-lang/vim-rescript'
 
 Plug 'SirVer/ultisnips'
 Plug 'hulufei/snippets'

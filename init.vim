@@ -142,6 +142,9 @@ let g:coc_global_extensions = [
       \'coc-ultisnips',
       \]
 
+" mostly I use <C-w>p for jump to last opened (error)window
+set mouse=a
+
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Some servers have issues with backup files, see #649

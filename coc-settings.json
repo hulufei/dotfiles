@@ -2,6 +2,7 @@
   "javascript.suggest.enabled": false,
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "html",
     "json",
     "svelte",
     "rescript",

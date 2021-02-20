@@ -7,9 +7,16 @@ call plug#begin('~/.local/share/nvim/plugged')
 " First install tex distribution: http://www.tug.org/mactex/morepackages.html
 " Install latexmk if not exist: tlmgr install latexmk
 Plug 'lervag/vimtex'
+let g:tex_flavor = 'latex'
 " let g:vimtex_compiler_method = 'tectonic'
-Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['latex']
+
+" Broke svelte nerdcommenter, use individual syntax highlight plugin instead
+" Plug 'sheerun/vim-polyglot'
+" let g:polyglot_disabled = ['latex']
+
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
+Plug 'pangloss/vim-javascript'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Sql related
 Plug 'lifepillar/pgsql.vim'
@@ -505,6 +512,7 @@ let g:context_filetype#filetypes.svelte =
 \ ]
 
 
+let g:NERDCustomDelimiters = { 'html': { 'left': '<!--', 'right': '-->' } }
 " -------------------------------------
 " NERDCommenter
 " -------------------------------------

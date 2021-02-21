@@ -73,6 +73,10 @@ nmap <Leader>wt <Plug>VimwikiTabIndex <bar> :tcd %:h<cr>
 nmap <Leader>ww <Plug>VimwikiIndex <bar> :tcd %:h<cr>
 nmap <Leader>cd :tcd %:h<cr>
 
+Plug 'michal-h21/vim-zettel'
+let g:zettel_format = "%y%m%d-%title"
+nnoremap <leader>zn :ZettelNew<space>
+
 " Setup completion popup menu work just like in an IDE
 " Don't auto select first item
 set completeopt=longest,menuone

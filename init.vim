@@ -147,13 +147,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \'coc-json',
       \'coc-tsserver',
+      \'coc-svelte',
       \'coc-rust-analyzer',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-ultisnips',
       \]
 " Setup format: npm add -D prettier prettier-plugin-svelte
-Plug 'codechips/coc-svelte', {'do': 'npm install'}
 " It will help us set the filetype based on the file section.
 Plug 'Shougo/context_filetype.vim'
 

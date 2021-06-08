@@ -4,6 +4,7 @@
     "css",
     "html",
     "json",
+    "rust",
     "svelte",
     "rescript",
     "javascript",
@@ -11,6 +12,8 @@
     "typescript",
     "typescriptreact"
   ],
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.cargo.allFeatures": true,
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",

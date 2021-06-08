@@ -133,13 +133,6 @@ command! NoWatch autocmd! watch
 nnoremap <leader>w :Watch Async
 nnoremap <leader>nw :NoWatch<CR>
 
-Plug 'w0rp/ale'
-let g:ale_fix_on_save = 1
-let g:ale_linters_explicit = 1
-let g:ale_fixers = {
-\   'rust': ['rustfmt'],
-\}
-
 " ========== coc config start ===========
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " ## Tips
@@ -281,7 +274,6 @@ Plug 'vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#ale#enabled = 1
 
 " Yank and paste a window with <leader>ww
 Plug 'wesQ3/vim-windowswap'

@@ -23,7 +23,8 @@ Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 Plug 'tpope/vim-dadbod'
 
-Plug 'trevordmiller/nova-vim'
+" https://github.com/chriskempson/base16-vim
+Plug 'chriskempson/base16-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 
@@ -366,9 +367,7 @@ let g:user_emmet_settings = {
 " Initialize plugin system
 call plug#end()
 
-" colorscheme NeoSolarized
-colorscheme nova
-set background=dark
+colorscheme base16-solarized-light
 
 " should appear after the |:colorscheme| command
 hi! CocErrorSign guifg=#df8c8c

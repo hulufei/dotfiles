@@ -194,8 +194,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev-error)
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next-error)
-nmap <silent> <leader>kw <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>jw <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>wk <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>wj <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)

@@ -297,18 +297,6 @@ let g:NERDCommentEmptyLines = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-Plug 'Twinside/vim-hoogle', { 'for': 'haskell' }
-" Hoogle the word under the cursor
-nnoremap <silent> <leader>hh :Hoogle<CR>
-" Hoogle and prompt for input
-nnoremap <leader>hH :Hoogle
-" Hoogle for detailed documentation (e.g. "Functor")
-nnoremap <silent> <leader>hi :HoogleInfo<CR>
-" Hoogle for detailed documentation and prompt for input
-nnoremap <leader>hI :HoogleInfo
-" Hoogle, close the Hoogle window
-nnoremap <silent> <leader>hz :HoogleClose<CR>
-
 " ReasonML related
 " Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rescript-lang/vim-rescript'

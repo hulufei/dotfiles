@@ -405,6 +405,8 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+" no highlight
+nmap <leader>x :let @/=""<CR>
 
 " <Esc> will conflict with ctrlp
 :tnoremap jj <C-\><C-n>

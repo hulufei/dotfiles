@@ -38,6 +38,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 --   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
 --   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
+lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus explorer" }
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -141,6 +142,9 @@ vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-N>:bd!<cr>", { noremap = true, s
 vim.cmd("set timeoutlen=300")
 vim.cmd("nnoremap ; :")
 vim.cmd([[
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
 set foldlevel=99
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()

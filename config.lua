@@ -11,6 +11,9 @@ lvim.colorscheme = "base16-solarized-light"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.insert_mode["jk"] = nil
+lvim.keys.insert_mode["kj"] = nil
+
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
@@ -118,7 +121,7 @@ lvim.plugins = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
 
-lvim.lang.tailwindcss.lsp.active = true
+-- lvim.lang.tailwindcss.lsp.active = true
 
 lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.json.formatters = { { exe = "prettier" } }

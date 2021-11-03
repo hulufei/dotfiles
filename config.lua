@@ -27,6 +27,8 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 
+vim.list_extend(lvim.lsp.override, { "rust" })
+
 -- Additional Plugins
 lvim.plugins = {
 	{ "RRethy/nvim-base16" },

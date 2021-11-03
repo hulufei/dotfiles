@@ -1,5 +1,4 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
 -- lvim.log.level = "debug"
 lvim.format_on_save = true
@@ -148,6 +147,13 @@ lvim.lang.lua.formatters = { { exe = "stylua" } }
 lvim.lang.json.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.rust.formatters = { { exe = "rustfmt" } }
+
+require("lspconfig").zeta_note.setup({
+	cmd = { "zeta-note" },
+	on_attach = require("lvim.lsp").common_on_attach,
+	on_init = require("lvim.lsp").common_on_init,
+	capabilities = require("lvim.lsp").common_capabilities(),
+})
 
 -- Go to previously opened buffer, which is more ergonomic
 vim.api.nvim_set_keymap("n", "<S-TAB>", ":b#<CR>", { noremap = true, silent = true })

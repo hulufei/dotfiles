@@ -15,11 +15,13 @@ lvim.keys.insert_mode["kj"] = nil
 
 lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus explorer" }
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.telescope.active = true
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+-- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+-- see: https://github.com/akinsho/toggleterm.nvim/pull/9
+-- Tweak log viewer background in light theme
+lvim.builtin.terminal.shading_factor = 3
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
@@ -111,6 +113,13 @@ set showbreak=↪
 set lcs=tab:▸\ ,eol:¬,nbsp:_
 " Shortcut to rapidly toggle `set list`
 nmap ,l :set list!<CR>
+
+" Copy current buffer absolute path to system clipboard
+nnoremap ,yp :let @*=expand("%:p")<cr>:echo "Copied file path to clipboard"<cr>
+" Copy current filename to system clipboard
+nnoremap ,yf :let @*=expand("%:t")<cr>:echo "Copied file name to clipboard"<cr>
+" Copy current buffer absolute path without filename to system clipboard
+nnoremap ,yd :let @*=expand("%:p:h")<cr>:echo "Copied file directory to clipboard"<cr>
 
 " vertical line ruler
 map ,ch :call SetColorColumn()<CR>

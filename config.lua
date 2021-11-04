@@ -1,4 +1,18 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+
+-- Writing print(vim.inspect(x)) every time you want to inspect the contents of an object can get pretty tedious.
+-- It might be worthwhile to have a global wrapper function. https://github.com/nanotee/nvim-lua-guide#tips-3
+function _G.put(...)
+	local objects = {}
+	for i = 1, select("#", ...) do
+		local v = select(i, ...)
+		table.insert(objects, vim.inspect(v))
+	end
+
+	print(table.concat(objects, "\n"))
+	return ...
+end
+
 -- general
 -- lvim.log.level = "debug"
 lvim.format_on_save = true

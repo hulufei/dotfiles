@@ -140,6 +140,10 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", ",t", ":terminal<cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-N>:bd!<cr>", { noremap = true, silent = true })
 
+lvim.autocommands.custom_groups = {
+	{ "BufNewFile,BufRead", "*.bean", "setlocal filetype=beancount" },
+}
+
 vim.cmd("set timeoutlen=300")
 vim.cmd("nnoremap ; :")
 vim.cmd([[

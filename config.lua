@@ -89,12 +89,39 @@ lvim.lang.json.formatters = { { exe = "prettier" } }
 lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
 lvim.lang.rust.formatters = { { exe = "rustfmt" } }
 
+-- Note taking setup start
 require("lspconfig").zeta_note.setup({
 	cmd = { "zeta-note" },
 	on_attach = require("lvim.lsp").common_on_attach,
 	on_init = require("lvim.lsp").common_on_init,
 	capabilities = require("lvim.lsp").common_capabilities(),
 })
+
+local note_dir = "~/Dropbox/zetanotes"
+
+function _G.new_note()
+	local pwd = vim.fn.getcwd()
+	vim.cmd(":lcd" .. note_dir)
+	local filename = vim.fn.input("New note: ", "", "dir")
+	vim.cmd(":lcd" .. pwd)
+	if not filename or filename == "" then
+		return
+	end
+	local filepath = join_paths(note_dir, filename .. ".md")
+	vim.cmd(":tabedit " .. filepath)
+	local note_filename = vim.fn.expand("%:t")
+	local title = "# " .. string.gsub(note_filename, "%.md$", "")
+	vim.api.nvim_buf_set_lines(0, 0, 1, 1, { title })
+end
+
+function _G.open_note_index()
+	local index = join_paths(note_dir, "index.md")
+	vim.cmd(":tabedit " .. index)
+end
+
+vim.api.nvim_set_keymap("n", ",no", "<cmd>lua open_note_index()<cr>", {})
+vim.api.nvim_set_keymap("n", ",nn", "<cmd>lua new_note()<cr>", {})
+-- Note taking setup end
 
 -- Go to previously opened buffer, which is more ergonomic
 vim.api.nvim_set_keymap("n", "<S-TAB>", ":b#<CR>", { noremap = true, silent = true })

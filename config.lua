@@ -19,6 +19,9 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.lsp.document_highlight = false
 lvim.colorscheme = "base16-solarized-light"
+-- If the name "cjk" is included East Asian characters are excluded from
+-- spell checking. This is useful when editing text that also has Asian words.
+vim.opt.spelllang = "en,cjk"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"

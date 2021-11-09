@@ -37,7 +37,7 @@ zle -N zle-line-init
 
 antigen apply
 
-export PATH="/Users/hulufei/.local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 export TIMEWARRIORDB="~/Dropbox/timewarrior"
 export TASKDATA="~/Dropbox/task"
 

@@ -46,7 +46,7 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 
-vim.list_extend(lvim.lsp.override, { "rust" })
+vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
 
 -- Additional Plugins
 lvim.plugins = {

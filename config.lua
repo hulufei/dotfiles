@@ -32,6 +32,8 @@ lvim.keys.insert_mode["kj"] = nil
 
 lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus explorer" }
 
+-- Order matters, so that open package.json will set root correctly
+lvim.builtin.project.detection_methods = { "pattern", "lsp" }
 lvim.builtin.telescope.active = true
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true

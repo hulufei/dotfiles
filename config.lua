@@ -89,10 +89,19 @@ lvim.plugins = {
 	},
 }
 
-lvim.lang.lua.formatters = { { exe = "stylua" } }
-lvim.lang.json.formatters = { { exe = "prettier" } }
-lvim.lang.typescriptreact.formatters = { { exe = "prettier" } }
-lvim.lang.rust.formatters = { { exe = "rustfmt" } }
+local formatters = require("lvim.lsp.null-ls.formatters")
+formatters.setup({
+	{
+		exe = "prettier",
+		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+		filetypes = { "typescript", "typescriptreact" },
+	},
+	{
+		exe = "stylua",
+		---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+		filetypes = { "lua" },
+	},
+})
 
 -- Note taking setup start
 require("lspconfig").zeta_note.setup({

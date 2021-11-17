@@ -27,8 +27,8 @@ vim.opt.spelllang = "en,cjk"
 lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-lvim.keys.insert_mode["jk"] = nil
-lvim.keys.insert_mode["kj"] = nil
+lvim.keys.insert_mode["jk"] = "jk"
+lvim.keys.insert_mode["kj"] = "kj"
 
 lvim.builtin.which_key.mappings["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus explorer" }
 

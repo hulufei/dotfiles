@@ -47,6 +47,8 @@ lvim.builtin.nvimtree.show_icons.git = 0
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+-- Use .gitconfig socks5 proxy
+require("nvim-treesitter.install").prefer_git = true
 
 vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
 

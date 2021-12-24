@@ -133,8 +133,25 @@ function _G.open_note_index()
 	vim.cmd(":tabedit " .. index)
 end
 
+function _G.new_diary()
+	local diary_dir = vim.fn.expand(join_paths(note_dir, "diary"))
+	if vim.fn.mkdir(diary_dir, "p") == 0 then
+		put("Create ", diary_dir, "failed!")
+		return
+	end
+	local today = os.date("%Y-%m-%d")
+	local diary = join_paths(diary_dir, today .. ".md")
+	vim.cmd(":tabedit " .. diary)
+	local content = table.concat(vim.api.nvim_buf_get_lines(0, 0, 1, false))
+	if content == "" then
+		local title = "# " .. today
+		vim.api.nvim_buf_set_lines(0, 0, 1, 1, { title })
+	end
+end
+
 vim.api.nvim_set_keymap("n", ",no", "<cmd>lua open_note_index()<cr>", {})
 vim.api.nvim_set_keymap("n", ",nn", "<cmd>lua new_note()<cr>", {})
+vim.api.nvim_set_keymap("n", ",nd", "<cmd>lua new_diary()<cr>", {})
 -- Note taking setup end
 
 -- Go to previously opened buffer, which is more ergonomic

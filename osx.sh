@@ -9,8 +9,6 @@ fi
 brew update
 
 binaries=(
-  trash
-  the_silver_searcher
   homebrew/cask-cask
   tig
   tmux
@@ -33,9 +31,7 @@ brew tap homebrew/cask-fonts
 brew cask install font-fira-cod
 
 apps=(
-  alfred
   dropbox
-  iterm2
   rectangle
   google-chrome
   firefox
@@ -51,5 +47,5 @@ brew cask install --appdir="/Applications" ${apps[@]}
 # To Enable image preview in iTerm2, modify rc.conf:
 # set preview_images true
 # set preview_images_method iterm2
-ranger --copy-config=rc
+#ranger --copy-config=rc
 

@@ -44,6 +44,8 @@ lvim.builtin.terminal.shading_factor = 3
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
+lvim.builtin.lualine.sections.lualine_y = { "location" }
+
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -175,6 +177,7 @@ vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-N>:bd!<cr>", { noremap = true, s
 
 lvim.autocommands.custom_groups = {
 	{ "BufNewFile,BufRead", "*.bean", "setlocal filetype=beancount" },
+	{ "BufNewFile,BufRead", "*.md", "setlocal textwidth=80" },
 }
 
 vim.cmd("set timeoutlen=300")

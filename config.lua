@@ -177,7 +177,7 @@ vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-N>:bd!<cr>", { noremap = true, s
 
 lvim.autocommands.custom_groups = {
 	{ "BufNewFile,BufRead", "*.bean", "setlocal filetype=beancount" },
-	{ "BufNewFile,BufRead", "*.md", "setlocal textwidth=80" },
+	{ "BufNewFile,BufRead", "*.md,*.txt", "setlocal cc=81" },
 }
 
 vim.cmd("set timeoutlen=300")

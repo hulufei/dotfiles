@@ -66,7 +66,19 @@ lvim.plugins = {
 	},
 	{
 		"tpope/vim-surround",
-		keys = { "c", "d", "y" },
+		keys = { "c", "d", "y", "v" },
+		config = function()
+			vim.cmd([[
+" b - bold
+" i - italic
+" s - strikeout
+" l - linkj
+autocmd FileType markdown let b:surround_{char2nr("b")} = "**\r**"
+autocmd FileType markdown let b:surround_{char2nr("i")} = "_\r_"
+autocmd FileType markdown let b:surround_{char2nr("s")} = "~~\r~~"
+autocmd FileType markdown let b:surround_{char2nr("l")} = "[\r]()"
+      ]])
+		end,
 	},
 	-- ]n and [n jump to conflict section is awesome
 	{ "tpope/vim-unimpaired" },

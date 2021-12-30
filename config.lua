@@ -138,6 +138,7 @@ formatters.setup({
 		filetypes = { "lua" },
 	},
 })
+require("lvim.lsp.manager").setup("tailwindcss")
 
 -- Go to previously opened buffer, which is more ergonomic
 vim.api.nvim_set_keymap("n", "<S-TAB>", ":b#<CR>", { noremap = true, silent = true })

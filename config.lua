@@ -73,10 +73,10 @@ lvim.plugins = {
 " i - italic
 " s - strikeout
 " l - linkj
-autocmd FileType markdown let b:surround_{char2nr("b")} = "**\r**"
-autocmd FileType markdown let b:surround_{char2nr("i")} = "_\r_"
-autocmd FileType markdown let b:surround_{char2nr("s")} = "~~\r~~"
-autocmd FileType markdown let b:surround_{char2nr("l")} = "[\r]()"
+autocmd FileType vimwiki,markdown let b:surround_{char2nr("b")} = " **\r** "
+autocmd FileType vimwiki,markdown let b:surround_{char2nr("i")} = " _\r_ "
+autocmd FileType vimwiki,markdown let b:surround_{char2nr("s")} = " ~~\r~~ "
+autocmd FileType vimwiki,markdown let b:surround_{char2nr("l")} = "[\r]()"
       ]])
 		end,
 	},

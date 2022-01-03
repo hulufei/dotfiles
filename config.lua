@@ -67,18 +67,6 @@ lvim.plugins = {
 	{
 		"tpope/vim-surround",
 		keys = { "c", "d", "y", "v" },
-		config = function()
-			vim.cmd([[
-" b - bold
-" i - italic
-" s - strikeout
-" l - linkj
-autocmd FileType vimwiki,markdown let b:surround_{char2nr("b")} = " **\r** "
-autocmd FileType vimwiki,markdown let b:surround_{char2nr("i")} = " _\r_ "
-autocmd FileType vimwiki,markdown let b:surround_{char2nr("s")} = " ~~\r~~ "
-autocmd FileType vimwiki,markdown let b:surround_{char2nr("l")} = "[\r]()"
-      ]])
-		end,
 	},
 	-- ]n and [n jump to conflict section is awesome
 	{ "tpope/vim-unimpaired" },
@@ -159,6 +147,11 @@ vim.api.nvim_set_keymap("t", "<ESC>", "<C-\\><C-N>:bd!<cr>", { noremap = true, s
 lvim.autocommands.custom_groups = {
 	{ "BufNewFile,BufRead", "*.bean", "setlocal filetype=beancount" },
 	{ "BufNewFile,BufRead", "*.md,*.txt", "setlocal cc=81" },
+	{ "FileType", "vimwiki,markdown", 'let b:surround_{char2nr("b")} = "**\r**"' },
+	{ "FileType", "vimwiki,markdown", 'let b:surround_{char2nr("i")} = "_\r_"' },
+	{ "FileType", "vimwiki,markdown", 'let b:surround_{char2nr("c")} = "`\r`"' },
+	{ "FileType", "vimwiki,markdown", 'let b:surround_{char2nr("s")} = "~~\r~~"' },
+	{ "FileType", "vimwiki,markdown", 'let b:surround_{char2nr("l")} = "[\r]()"' },
 }
 
 vim.cmd("set timeoutlen=300")

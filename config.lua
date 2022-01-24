@@ -108,6 +108,8 @@ let wiki.auto_tags = 1
 
 let g:vimwiki_list = [wiki]
 map <Leader>tt <Plug>VimwikiToggleListItem
+map <Leader>wgq <Plug>VimwikiTableAlignQ
+map <Leader>wgq1 <Plug>VimwikiTableAlignQ1
     ]])
 		end,
 	},

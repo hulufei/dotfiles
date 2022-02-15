@@ -18,7 +18,8 @@ end
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.lsp.document_highlight = false
-lvim.colorscheme = "base16-solarized-light"
+vim.o.bg = "light"
+lvim.colorscheme = "solarized"
 -- If the name "cjk" is included East Asian characters are excluded from
 -- spell checking. This is useful when editing text that also has Asian words.
 vim.opt.spelllang = "en,cjk"
@@ -56,7 +57,7 @@ vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
 
 -- Additional Plugins
 lvim.plugins = {
-	{ "RRethy/nvim-base16" },
+	{ "ishan9299/nvim-solarized-lua" },
 	{
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",

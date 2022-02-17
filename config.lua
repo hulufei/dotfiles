@@ -166,6 +166,9 @@ set nostartofline
 set foldlevel=99
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+" m - Also break at a multi-byte character above 255. This is useful for Asian
+" text where every character is a word on its own.
+set formatoptions+=cmB
 
 set showbreak=↪
 set lcs=tab:▸\ ,eol:¬,nbsp:_

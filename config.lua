@@ -50,6 +50,7 @@ lvim.builtin.lualine.sections.lualine_y = { "location" }
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.autotag.enable = true
 -- Use .gitconfig socks5 proxy
 require("nvim-treesitter.install").prefer_git = true
 
@@ -58,13 +59,7 @@ vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
 -- Additional Plugins
 lvim.plugins = {
 	{ "ishan9299/nvim-solarized-lua" },
-	{
-		"windwp/nvim-ts-autotag",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-ts-autotag").setup()
-		end,
-	},
+	{ "windwp/nvim-ts-autotag" },
 	{
 		"tpope/vim-surround",
 		keys = { "c", "d", "y", "v" },

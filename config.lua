@@ -59,6 +59,9 @@ vim.list_extend(lvim.lsp.override, { "rust_analyzer" })
 -- Additional Plugins
 lvim.plugins = {
 	{ "ishan9299/nvim-solarized-lua" },
+	-- First install tex distribution: http://www.tug.org/mactex/morepackages.html
+	-- Install latexmk if not exist: tlmgr install latexmk
+	{ "lervag/vimtex", ft = { "tex" } },
 	{ "windwp/nvim-ts-autotag" },
 	{
 		"tpope/vim-surround",

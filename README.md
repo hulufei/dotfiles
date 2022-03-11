@@ -1,31 +1,11 @@
 # dotfiles
 
-`git clone https://github.com/hulufei/dotfiles.git`
+My ultimate workspace setup: [Alacritty](https://github.com/alacritty/alacritty) + tmux + [LunarVim](https://github.com/LunarVim/LunarVim)
 
-## Install
+![./screenshot.png](./screenshot.png)
 
-- `cd dotfiles`
-- `./install.sh`
+Related config files:
 
-**iTerm2**
-
-Import color preset: `nova.itermcolors`
-
-**Tips**
-
-- Ack search specified file: eg. --xml
-- TODO: https://github.com/ubnt-intrepid/dot
-
-**Mac**
-
-- [Hacker's Guide to Setting up Your Mac](http://lapwinglabs.com/blog/hacker-guide-to-setting-up-your-mac)
-
-**JavaScript**
-
-- `npm i -g eslint prettier`
-
-**Haskell**
-
-- Install [stack](https://docs.haskellstack.org/en/stable/README/)
-- Config [tuna mirrors](https://mirrors.tuna.tsinghua.edu.cn/help/stackage/)
-- `stack install ghc-mod hlint hindent`
+- [Alacritty](./.alacritty.yml)
+- [tmux](./.tmux.conf)
+- [LunarVim](./config.lua)

@@ -48,7 +48,8 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.lualine.sections.lualine_y = { "location" }
 
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {}
+-- Make sure autotag works with `.tsx`
+lvim.builtin.treesitter.ensure_installed = { "tsx" }
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.autotag.enable = true
 -- Use .gitconfig socks5 proxy
